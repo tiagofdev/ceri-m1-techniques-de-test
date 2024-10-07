@@ -1,10 +1,16 @@
 # This config was automatically generated from your source code
 # Stacks detected: deps:java:.
 version: 2.1
+
+#executors:
+#  myExecutor:
+#    type: string
+
+
 jobs:
   test-java:
     docker:
-      - image: cimg/openjdk:17.0
+      - image: cimg/openjdk:21.0
     steps:
       - checkout
       - run:
@@ -14,6 +20,9 @@ jobs:
                     sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
       - restore_cache:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+      - run:
+          name: Run Unit Tests
+          command: mvn test
       - run:
           command: mvn verify
       - store_test_results:
@@ -38,3 +47,7 @@ workflows:
     # - deploy:
     #     requires:
     #       - test-java
+      - build:
+          filters:
+            branches:
+              only: master
