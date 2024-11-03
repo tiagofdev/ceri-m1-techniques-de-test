@@ -2,11 +2,6 @@
 # Stacks detected: deps:java:.
 version: 2.1
 
-#executors:
-#  myExecutor:
-#    type: string
-
-
 jobs:
   test-java:
     docker:
@@ -15,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: Calculate cache key
-          command: |-
+          command: |
             find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
                     sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
       - restore_cache:
@@ -24,6 +19,7 @@ jobs:
           name: Run Unit Tests
           command: mvn test
       - run:
+          name: Verify Build
           command: mvn verify
       - store_test_results:
           path: target/surefire-reports
@@ -31,23 +27,22 @@ jobs:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
           paths:
             - ~/.m2/repository
+
   deploy:
-    # This is an example deploy job, not actually used by the workflow
     docker:
       - image: cimg/base:stable
     steps:
-      # Replace this with steps to deploy to users
       - run:
-          name: deploy
+          name: Deploy
           command: '#e.g. ./deploy.sh'
+
 workflows:
   build-and-test:
     jobs:
       - test-java
-      # - deploy:
-      #     requires:
-      #       - test-java
-      - build:
+      - deploy:
+          requires:
+            - test-java
           filters:
             branches:
               only: master
