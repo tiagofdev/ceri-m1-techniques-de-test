@@ -36,13 +36,3 @@ jobs:
           name: Deploy
           command: '#e.g. ./deploy.sh'
 
-workflows:
-  build-and-test:
-    jobs:
-      - test-java
-      - deploy:
-          requires:
-            - test-java
-          filters:
-            branches:
-              only: master
