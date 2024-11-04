@@ -1,7 +1,6 @@
+# This config was automatically generated from your source code
+# Stacks detected: deps:java:.
 version: 2.1
-
-orbs:
-  codecov: codecov/codecov@4.0.1
 
 jobs:
   test-java:
@@ -28,6 +27,9 @@ jobs:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
           paths:
             - ~/.m2/repository
+      - run:
+          name: Upload Coverage to Codecov
+          command: bash <(curl -s https://codecov.io/bash) || echo "Codecov upload failed"
 
   deploy:
     docker:
@@ -36,17 +38,6 @@ jobs:
       - run:
           name: Deploy
           command: '#e.g. ./deploy.sh'
-
-  upload-coverage:
-    docker:
-      - image: cimg/openjdk:21.0
-    steps:
-      - checkout
-      - run:
-          name: Run Tests and Generate Coverage Report
-          command: mvn test
-      - codecov/upload:
-          token: "CODECOV_TOKEN"  # Remove the ${} syntax
 
 workflows:
   build-and-test:
@@ -59,6 +50,7 @@ workflows:
             branches:
               only: master
 
-  upload-to-codecov:
-    jobs:
-      - upload-coverage
+orbs:
+  codecov: codecov/codecov@4.0.1
+
+
