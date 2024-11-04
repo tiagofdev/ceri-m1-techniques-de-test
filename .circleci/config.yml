@@ -50,7 +50,6 @@ workflows:
               only: master
   upload-to-codecov:
     jobs:
-      - checkout
       - run:
           name: Upload Coverage to Codecov
           command: bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN} || echo "Codecov upload failed"
