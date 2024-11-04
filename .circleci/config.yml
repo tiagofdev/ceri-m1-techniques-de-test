@@ -27,9 +27,7 @@ jobs:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
           paths:
             - ~/.m2/repository
-      - run:
-          name: Upload Coverage to Codecov
-          command: bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN} || echo "Codecov upload failed"
+
 
 
   deploy:
@@ -53,6 +51,9 @@ workflows:
   upload-to-codecov:
     jobs:
       - checkout
+      - run:
+          name: Upload Coverage to Codecov
+          command: bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN} || echo "Codecov upload failed"
       - codecov/upload
 
 orbs:
