@@ -1,6 +1,7 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:java:.
 version: 2.1
+
+orbs:
+  codecov: codecov/codecov@4.0.1
 
 jobs:
   test-java:
@@ -28,8 +29,6 @@ jobs:
           paths:
             - ~/.m2/repository
 
-
-
   deploy:
     docker:
       - image: cimg/base:stable
@@ -37,6 +36,17 @@ jobs:
       - run:
           name: Deploy
           command: '#e.g. ./deploy.sh'
+
+  upload-coverage:
+    docker:
+      - image: cimg/openjdk:21.0
+    steps:
+      - checkout
+      - run:
+          name: Run Tests and Generate Coverage Report
+          command: mvn test
+      - codecov/upload:
+          token: "${CODECOV_TOKEN}"
 
 workflows:
   build-and-test:
@@ -48,14 +58,7 @@ workflows:
           filters:
             branches:
               only: master
+
   upload-to-codecov:
     jobs:
-      - run:
-          name: Upload Coverage to Codecov
-          command: bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN} || echo "Codecov upload failed"
-      - codecov/upload
-
-orbs:
-  codecov: codecov/codecov@4.0.1
-
-
+      - upload-coverage
