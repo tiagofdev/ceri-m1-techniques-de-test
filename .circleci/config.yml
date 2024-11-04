@@ -46,7 +46,7 @@ jobs:
           name: Run Tests and Generate Coverage Report
           command: mvn test
       - codecov/upload:
-          token: "${CODECOV_TOKEN}"
+          token: "CODECOV_TOKEN"  # Remove the ${} syntax
 
 workflows:
   build-and-test:
