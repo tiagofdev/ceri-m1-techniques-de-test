@@ -16,8 +16,9 @@ public class IPokemonMetadataProviderTest {
         pokemonMetadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
     }
 
+    // Unit Test
     @Test
-    public void testGetPokemonMetadata() throws PokedexException {
+    public void testGetPokemonMetadataMock() throws PokedexException {
         // Création d'un objet PokemonMetadata fictif
         PokemonMetadata metadata = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
 
@@ -35,5 +36,6 @@ public class IPokemonMetadataProviderTest {
         assertEquals(126, result.getDefense());
         assertEquals(90, result.getStamina());
     }
+
 
 }
