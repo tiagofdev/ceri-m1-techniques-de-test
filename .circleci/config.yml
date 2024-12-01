@@ -47,16 +47,15 @@ jobs:
       - run:
           name: Deploy Javadoc to GitHub Pages
           command: |
-            git config --global user.email "t-email@example.com"
-            git config --global user.name "Your Name"
-            git clone --branch gh-pages https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages
-            mkdir -p gh-pages/javadoc
-            cp -r target/site/apidocs/* gh-pages/javadoc/
+            git config --global user.name "circleci-bot"
+            git config --global user.email "bot@circleci.com"
+            git clone --branch gh-pages https://$GITHUB_TOKEN@github.com/tiagofdev/ceri-m1-techniques-de-test.git gh-pages
+            rm -rf gh-pages/*
+            cp -r target/site/apidocs/* gh-pages/
             cd gh-pages
             git add .
-            git commit -m "Deploy Javadoc to GitHub Pages [skip ci]"
-            git push https://${{ secrets.GITHUB_TOKEN }}@github.com/tiagofdev/ceri-m1-techniques-de-test.git gh-pages || echo "Deployment failed"  
-  
+            git commit -m "Auto-update Javadoc [skip ci]"
+            git push origin gh-pages
 
   deploy:
     executor: java-docker
