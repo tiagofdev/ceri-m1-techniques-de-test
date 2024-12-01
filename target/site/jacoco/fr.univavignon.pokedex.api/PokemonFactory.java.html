@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Mon Application</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokemonFactory.java</span></div><h1>PokemonFactory.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+<span class="fc" id="L3">public class PokemonFactory implements IPokemonFactory{</span>
+    /* I can either instantiate a pokemon using the Pokemon constructor or using the IPokemonFactory interface.
+     The second method only accepts parameters for the individual values.
+     The base values for a species are not input.
+     Therefore, I'm going to assume that using the factory, the individual metadata for attack, defense and
+     stamina, which range from 1 to 15 are going to be the base values. As the trainer plays the game , these values are
+     changed by other methods during gameplay.
+     iv is calculated as attack + defense + stamina / 45
+     if all 3 stats are 15 then the sum of them 45 / 45 will a perfect 100% iv */
+    @Override
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+        PokemonMetadata metadata;
+        try {
+<span class="fc" id="L16">            metadata = Pokedex.baseValues.get(index-1);</span>
+<span class="fc" id="L17">            double iv = (metadata.getAttack() + metadata.getDefense() + metadata.getStamina()) / 45.0;</span>
+<span class="fc" id="L18">            return new Pokemon(metadata.getIndex(), metadata.getName(), metadata.getAttack(), metadata.getDefense(),</span>
+<span class="fc" id="L19">                    metadata.getStamina(), cp, hp, dust, candy, iv);</span>
+<span class="fc" id="L20">        } catch (IndexOutOfBoundsException iob) {</span>
+<span class="fc" id="L21">            return null;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
