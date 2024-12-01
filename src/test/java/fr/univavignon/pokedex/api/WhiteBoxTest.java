@@ -3,6 +3,7 @@ package fr.univavignon.pokedex.api;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -210,6 +211,14 @@ public class WhiteBoxTest {
         assertEquals(orderedAttack.get(1).getAttack(), 8);
         assertEquals(orderedAttack.get(2).getAttack(), 13);
 
+    }
+
+
+    @Test
+    public void testPokedexBaseValues() throws PokedexException {
+        assertNotNull(Pokedex.baseValues);
+        assertEquals(151, Pokedex.baseValues.size());
+        assertEquals(pokedex.getPokemonMetadata(24).getName(), Pokedex.baseValues.get(24-1).getName());
     }
 
     @Test(expected = PokedexException.class)
