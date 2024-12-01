@@ -45,3 +45,6 @@ public class PokemonTrainer {
 	}
 	
 }
+
+
+// PokemonTrainer <- TrainerFactory <- PokedexFactory <- MetadataProvider + PokemonFactory

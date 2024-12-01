@@ -1,8 +1,12 @@
 # TP3 : Pokéunit 
 
 ## Épisode 1 - Tests unitaires
-Place aux tests unitaires ! On voudra une couverture maximale (mais pertinente) de notre  API. Il faut donc des tests pour toutes les interfaces de notre application, les tests de nos interfaces pourront ensuite être réutilisés sur les implémentations pour s’assurer de leur bon  fonctionnement, dans une logique de développement dirigé par les tests.  
-Tout d’abord il vous faut créer un nouveau répertoire `src/test/java` et un package `fr.univavignon.pokedex.api` pour vos tests, et mettre à jour votre `POM` afin d’associer le  répertoire créé comme un répertoire contenant des tests unitaires.  
+Place aux tests unitaires ! On voudra une couverture maximale (mais pertinente) de notre  API. Il faut donc des tests 
+pour toutes les interfaces de notre application, les tests de nos interfaces pourront ensuite être réutilisés sur les 
+implémentations pour s’assurer de leur bon  fonctionnement, dans une logique de développement dirigé par les tests.  
+Tout d’abord il vous faut créer un nouveau répertoire `src/test/java` et un package `fr.univavignon.pokedex.api` pour 
+vos tests, et mettre à jour votre `POM` afin d’associer le  répertoire créé comme un répertoire contenant des tests 
+unitaires.
 Voici la liste des test cases attendus :
 
 - `IPokemonMetadataProviderTest`
@@ -11,11 +15,14 @@ Voici la liste des test cases attendus :
 - `IPokedexTest`
 - `IPokemonTrainerFactoryTest`
 
-Il est fortement recommandé de mettre pour chaque classe de test une couche d’abstraction pour récupérer des instances d’objets cible, qui seront dans le cadre des tests de  l’API des mocks crées avec Mockito, et de vraies instances pour les tests d’implémentation.
+Il est fortement recommandé de mettre pour chaque classe de test une couche d’abstraction pour récupérer des instances 
+d’objets cible, qui seront dans le cadre des tests de  l’API des mocks crées avec Mockito, et de vraies instances pour 
+les tests d’implémentation.
 
 ## Épisode 2 - Catch the API
 
-L’idée est de stocker des informations sur des Pokémons, dans un conteneur qu’est le Pokédex. Dans le cadre de ce TP nous nous contenterons de la première génération, soit 151 espèces.  
+L’idée est de stocker des informations sur des Pokémons, dans un conteneur qu’est le Pokédex. Dans le cadre de ce TP 
+nous nous contenterons de la première génération, soit 151 espèces.  
 Une espèce de Pokémon est décrite par des métadonnées communes à chaque individu de l’espèce à savoir :
 
 - Un index numérique (allant de 0 à 150)
@@ -24,7 +31,8 @@ Une espèce de Pokémon est décrite par des métadonnées communes à chaque in
 - Un niveau de défense
 - Un niveau d’endurance ou stamina 
 
-Ces informations sont représentées par la classe `PokemonMetadata`. Les métadonnées  décrivent une espèce, alors qu’un individu est défini par la classe Pokemon, défini par les attributs suivants :
+Ces informations sont représentées par la classe `PokemonMetadata`. Les métadonnées  décrivent une espèce, 
+alors qu’un individu est défini par la classe Pokemon, défini par les attributs suivants :
 
 - Un niveau de combat ou CP
 - Un niveau de vie ou HP
@@ -33,7 +41,9 @@ Ces informations sont représentées par la classe `PokemonMetadata`. Les métad
 - Un pourcentage de perfection
 - Des métadonnées 
 
-Les métadonnées d’un individu ne doivent pas être confondues avec les métadonnées de  l’espèce. En effet, les valeurs des niveaux d’attaque, de défense, ou d’endurance sont bornées  entre 0 et 15 dans le cadre d’un individu. Le niveau pour une statistique donnée se calcule ainsi :
+Les métadonnées d’un individu ne doivent pas être confondues avec les métadonnées de  l’espèce. En effet, les valeurs 
+des niveaux d’attaque, de défense, ou d’endurance sont bornées  entre 0 et 15 dans le cadre d’un individu. Le niveau 
+pour une statistique donnée se calcule ainsi :
 ```
 Niveau de base de l’espèce + Niveau de l’individu
 ```
