@@ -37,8 +37,8 @@ jobs:
       - run:
           name: Upload Coverage to Codecov
           command: bash <(curl -s https://codecov.io/bash) || echo "Codecov upload failed"
-      - codecov/upload:
-          file: ./target/site/jacoco/jacoco.xml
+#      - codecov/upload:
+#          file: ./target/site/jacoco/jacoco.xml
 
   deploy:
     docker:
