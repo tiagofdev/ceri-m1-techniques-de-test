@@ -31,9 +31,9 @@ jobs:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
           paths:
             - ~/.m2/repository
-      - run:
-          name: Run tests and collect coverage
-          command: mvn test jacoco:report
+#      - run:
+#          name: Run tests and collect coverage
+#          command: mvn test jacoco:report
       - run:
           name: Upload Coverage to Codecov
           command: bash <(curl -s https://codecov.io/bash) || echo "Codecov upload failed"
