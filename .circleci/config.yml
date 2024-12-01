@@ -60,8 +60,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Set Executable Permissions
+          command: chmod +x ./deploy.sh
+      - run:
           name: Deploy Application
-          command: ./deploy.sh
+          command: ./scripts/deploy.sh
 
 workflows:
   build-and-test:
