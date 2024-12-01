@@ -1,19 +1,20 @@
 # This config was automatically generated from your source code
 # Stacks detected: deps:java:.
+
 version: 2.1
 
 executors:
   java-docker:
     docker:
-      - image: cimg/openjdk:21.0  # Predefine the Docker image to use
+      - image: cimg/openjdk:21.0  # Predefined Docker image for Java builds
 
 jobs:
   test-java:
-    executor: java-docker  # Reference the predefined executor
+    executor: java-docker  # Use the predefined executor
     steps:
       - checkout
       - run:
-          name: Calculate cache key
+          name: Calculate Cache Key
           command: |
             find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
                     sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
@@ -32,28 +33,34 @@ jobs:
           paths:
             - ~/.m2/repository
       - run:
-          name: Run tests and collect coverage
+          name: Generate Test Coverage Report
           command: mvn test jacoco:report
       - run:
           name: Upload Coverage to Codecov
           command: bash <(curl -s https://codecov.io/bash) || echo "Codecov upload failed"
       - codecov/upload:
           file: ./target/site/jacoco/jacoco.xml
-      - name: Générer Javadoc
-        run: mvn -B javadoc:javadoc
-      - name: Deploiement sur GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/reports/apidocs
+      - run:
+          name: Generate Javadoc
+          command: mvn -B javadoc:javadoc
+      - run:
+          name: Deploy Javadoc to GitHub Pages
+          command: |
+            mkdir -p docs
+            cp -r target/site/apidocs/* docs/
+            git config --global user.email "circleci@example.com"
+            git config --global user.name "CircleCI"
+            git add docs/
+            git commit -m "Deploy Javadoc to GitHub Pages"
+            git push origin gh-pages || echo "Deployment skipped"
 
   deploy:
-    docker:
-      - image: cimg/base:stable
+    executor: java-docker
     steps:
+      - checkout
       - run:
-          name: Deploy
-          command: '#e.g. ./deploy.sh'
+          name: Deploy Application
+          command: ./deploy.sh
 
 workflows:
   build-and-test:
@@ -68,5 +75,3 @@ workflows:
 
 orbs:
   codecov: codecov/codecov@4.0.1
-
-
