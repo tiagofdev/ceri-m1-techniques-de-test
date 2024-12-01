@@ -89,8 +89,8 @@
                 <version>1.0.0</version>
                 <executions>
                     <execution>
-                        <id>verify</id>
-                        <phase>verify</phase>
+                        <id>validate</id>
+                        <phase>validate</phase>
                         <goals>
                             <goal>badges</goal>
                         </goals>
