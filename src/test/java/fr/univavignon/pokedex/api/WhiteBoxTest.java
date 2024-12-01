@@ -1,5 +1,4 @@
 package fr.univavignon.pokedex.api;
-import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -184,7 +183,10 @@ public class WhiteBoxTest {
         list.add(pokemon3);
 
         // IPokedex.getPokemons()
-        assertThat(list).isEqualTo(newPokedex.getPokemons());
+        for (int i = 0; i < list.size(); i++) {
+            assertEquals(list.get(i), newPokedex.getPokemons().get(i));
+        }
+
 
         // IPokedex.getPokemons(Comparator<Pokemon> order)
         // pokemon1     024	Arbok	13	13	12	281	36	1324	2
