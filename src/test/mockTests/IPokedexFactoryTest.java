@@ -2,6 +2,7 @@ package fr.univavignon.pokedex.api;
 
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -43,7 +44,6 @@ public class IPokedexFactoryTest {
         // Verify that createPokedex was called with the expected arguments
         verify(pokedexFactory).createPokedex(metadataProvider, pokemonFactory);
     }
-
 
 
 }

@@ -7,12 +7,18 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Pokedex implements IPokedex.
+ */
 public class Pokedex implements IPokedex {
 
-    public static final List<PokemonMetadata> baseValues;
+    /**
+     * Static final base values.
+     */
+    public static final List<PokemonMetadata> BASE_VALUES;
 
     static {
-        baseValues = new ArrayList<>();
+        BASE_VALUES = new ArrayList<>();
         String filePath = "src/test/java/fr/univavignon/pokedex/api/baseValues.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -23,25 +29,35 @@ public class Pokedex implements IPokedex {
                 int attack = Integer.parseInt(values[2]);
                 int defense = Integer.parseInt(values[3]);
                 int stamina = Integer.parseInt(values[4]);
-                baseValues.add(new PokemonMetadata(index, name, attack, defense, stamina));
+                BASE_VALUES.add(new PokemonMetadata(index, name, attack, defense, stamina));
             }
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());
         }
     }
 
+    /**
+     * List<Pokemon> pokemonList.
+     */
     private final List<Pokemon> pokemonList;
     private final IPokemonFactory iPokemonFactory;
     private final IPokemonMetadataProvider iPokemonMetadataProvider;
 
-
-
+    /**
+     *
+     * @param pokemonMetadataProvider
+     * @param pokemonFactory
+     */
     Pokedex(IPokemonMetadataProvider pokemonMetadataProvider, IPokemonFactory pokemonFactory) {
         pokemonList = new ArrayList<>();
         this.iPokemonFactory = pokemonFactory;
         this.iPokemonMetadataProvider = pokemonMetadataProvider;
     }
 
+    /**
+     * Returns the size of the internal pokemonList.
+     * @return int
+     */
     @Override
     public int size() {
         return pokemonList.size();
@@ -66,6 +82,12 @@ public class Pokedex implements IPokedex {
         return pokemonList.size() - 1;
     }
 
+    /**
+     * .
+     * @param id Unique pokedex relative identifier.
+     * @return
+     * @throws PokedexException
+     */
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
         try {
@@ -75,11 +97,20 @@ public class Pokedex implements IPokedex {
         }
     }
 
+    /**
+     * .
+     * @return List<Pokemon>
+     */
     @Override
     public List<Pokemon> getPokemons() {
         return this.pokemonList;
     }
 
+    /**
+     * .
+     * @param order Comparator instance used for sorting the created view.
+     * @return List<Pokemon>
+     */
     @Override
     public List<Pokemon> getPokemons(Comparator<Pokemon> order) {
         if (order == null) {
@@ -90,11 +121,26 @@ public class Pokedex implements IPokedex {
         return sortedPokemons; // Return the sorted copy
     }
 
+    /**
+     * .
+     * @param index Index of the pokemon to retrieve metadata for.
+     * @return
+     * @throws PokedexException
+     */
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
         return iPokemonMetadataProvider.getPokemonMetadata(index);
     }
 
+    /**
+     * .
+     * @param index Pokemon index.
+     * @param cp    Pokemon CP.
+     * @param hp    Pokemon HP.
+     * @param dust  Required dust for upgrading pokemon.
+     * @param candy Required candy for upgrading pokemon.
+     * @return
+     */
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
         return iPokemonFactory.createPokemon(index, cp, hp, dust, candy);

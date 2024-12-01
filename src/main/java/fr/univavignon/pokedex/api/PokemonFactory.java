@@ -1,6 +1,6 @@
 package fr.univavignon.pokedex.api;
 
-public class PokemonFactory implements IPokemonFactory{
+public class PokemonFactory implements IPokemonFactory {
     /* I can either instantiate a pokemon using the Pokemon constructor or using the IPokemonFactory interface.
      The second method only accepts parameters for the individual values.
      The base values for a species are not input.
@@ -13,7 +13,7 @@ public class PokemonFactory implements IPokemonFactory{
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
         PokemonMetadata metadata;
         try {
-            metadata = Pokedex.baseValues.get(index-1);
+            metadata = Pokedex.BASE_VALUES.get(index - 1);
             double iv = (metadata.getAttack() + metadata.getDefense() + metadata.getStamina()) / 45.0;
             return new Pokemon(metadata.getIndex(), metadata.getName(), metadata.getAttack(), metadata.getDefense(),
                     metadata.getStamina(), cp, hp, dust, candy, iv);
