@@ -57,14 +57,12 @@ jobs:
 
   deploy:
     executor: java-docker
+    docker:
+      - image: cimg/base:stable
     steps:
-      - checkout
       - run:
-          name: Set Executable Permissions
-          command: chmod +x ./scripts/deploy.sh
-      - run:
-          name: Deploy Application
-          command: ./scripts/deploy.sh
+          name: Deploy
+          command: '#e.g. ./deploy.sh'
 
 workflows:
   build-and-test:
