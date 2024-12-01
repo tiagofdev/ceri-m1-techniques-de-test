@@ -1,19 +1,20 @@
 # This config was automatically generated from your source code
 # Stacks detected: deps:java:.
+
 version: 2.1
 
 executors:
   java-docker:
     docker:
-      - image: cimg/openjdk:21.0  # Predefine the Docker image to use
+      - image: cimg/openjdk:21.0  # Predefined Docker image for Java builds
 
 jobs:
   test-java:
-    executor: java-docker  # Reference the predefined executor
+    executor: java-docker  # Use the predefined executor
     steps:
       - checkout
       - run:
-          name: Calculate cache key
+          name: Calculate Cache Key
           command: |
             find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
                     sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
@@ -32,19 +33,36 @@ jobs:
           paths:
             - ~/.m2/repository
       - run:
-          name: Run tests and collect coverage
+          name: Generate Test Coverage Report
           command: mvn test jacoco:report
       - run:
           name: Upload Coverage to Codecov
           command: bash <(curl -s https://codecov.io/bash) || echo "Codecov upload failed"
+      - codecov/upload:
+          file: ./target/site/jacoco/jacoco.xml
+      - run:
+          name: Generate Javadoc
+          command: mvn -B javadoc:javadoc
+      - run:
+          name: Deploy Javadoc to GitHub Pages
+          command: |
+            git config --global user.name "circleci-bot"
+            git config --global user.email "bot@circleci.com"
+            git clone --branch gh-pages https://$GITHUB_TOKEN@github.com/tiagofdev/ceri-m1-techniques-de-test.git gh-pages
+            rm -rf gh-pages/*
+            cp -r target/site/apidocs/* gh-pages/
+            cd gh-pages
+            git add .
+            git commit -m "Auto-update Javadoc [skip ci]"
+            git push origin gh-pages
 
   deploy:
-    docker:
-      - image: cimg/base:stable
+    executor: java-docker
     steps:
+      - checkout
       - run:
-          name: Deploy
-          command: '#e.g. ./deploy.sh'
+          name: Deploy Application
+          command: ./deploy.sh
 
 workflows:
   build-and-test:
@@ -59,5 +77,3 @@ workflows:
 
 orbs:
   codecov: codecov/codecov@4.0.1
-
-

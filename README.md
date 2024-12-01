@@ -9,6 +9,8 @@ M1 ILSEN CLASSIQUE
 
 [![codecov](https://codecov.io/gh/tiagofdev/ceri-m1-techniques-de-test/graph/badge.svg?token=NKE1XLFV7C)](https://codecov.io/gh/tiagofdev/ceri-m1-techniques-de-test)
 
+<img src="./checkstyle-result.svg"/> 
+
 [![Checkstyle](https://img.shields.io/badge/Checkstyle-Report-brightgreen)](https://tiagofdev.github.io/ceri-m1-techniques-de-test/target/site/checkstyle.html)
 
 
