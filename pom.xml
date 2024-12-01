@@ -82,25 +82,25 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>com.github.bordertech.buildtools</groupId>
-                <artifactId>badger</artifactId>
-                <version>1.0.0</version>
-                <executions>
-                    <execution>
-                        <id>verify</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>badges</goal>
-                        </goals>
-                        <configuration>
-                            <inputFiles>
-                                <inputFile>target/checkstyle-result.xml</inputFile>
-                            </inputFiles>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>com.github.bordertech.buildtools</groupId>-->
+<!--                <artifactId>badger</artifactId>-->
+<!--                <version>1.0.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>verify</id>-->
+<!--                        <phase>verify</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>badges</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <inputFiles>-->
+<!--                                <inputFile>target/checkstyle-result.xml</inputFile>-->
+<!--                            </inputFiles>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 
