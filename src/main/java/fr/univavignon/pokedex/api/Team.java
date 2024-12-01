@@ -17,7 +17,7 @@ public enum Team {
 
 	INSTINCT,
 	
-	VALOR;
+	VALOR
 
 
 }

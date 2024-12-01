@@ -43,7 +43,17 @@ jobs:
       - run:
           name: Generate Javadoc
           command: mvn -B javadoc:javadoc
-     
+      - run:
+          name: Deploy Javadoc to GitHub Pages
+          command: |
+            mkdir -p docs
+            cp -r target/site/apidocs/* docs/
+            git config --global user.email "circleci@example.com"
+            git config --global user.name "CircleCI"
+            git add docs/
+            git commit -m "Deploy Javadoc to GitHub Pages"
+            git push origin gh-pages || echo "Deployment skipped"
+
 
   deploy:
     executor: java-docker

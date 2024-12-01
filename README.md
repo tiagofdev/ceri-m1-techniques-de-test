@@ -13,7 +13,7 @@ M1 ILSEN CLASSIQUE
 
 [![Checkstyle](https://img.shields.io/badge/Checkstyle-Report-brightgreen)](https://tiagofdev.github.io/ceri-m1-techniques-de-test/target/site/checkstyle.html)
 
-
+[![Docs](https://img.shields.io/badge/Javadocs-Report-brightgreen)](https://tiagofdev.github.io/ceri-m1-techniques-de-test/target/reports/apidocs/index.html)
 
 # Projet Techniques de Test
 
