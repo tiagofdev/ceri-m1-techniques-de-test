@@ -125,9 +125,15 @@ public class WhiteBoxTest {
 
     // Testing IPokedexFactory
     @Test(expected = IllegalArgumentException.class)
-    public void testPokedexFactoryInstancingNull() {
+    public void testPokedexFactoryInstancingBothNull() {
         PokedexFactory pokedexFactory = new PokedexFactory();
         IPokedex newPokedex = pokedexFactory.createPokedex(null, null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testPokedexFactoryInstancingOneNull() {
+        PokedexFactory pokedexFactory = new PokedexFactory();
+        IPokedex newPokedex = pokedexFactory.createPokedex(null, pokemonFactory);
     }
 
     // Testing IPokedexFactory and Ipokedex unique functions
