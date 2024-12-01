@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.setMaxElementsForPrinting;
 import static org.junit.Assert.*;
 
 public class WhiteBoxTest {
