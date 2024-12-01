@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pokedex.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Mon Application</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">Pokedex.java</span></div><h1>Pokedex.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+public class Pokedex implements IPokedex {
+
+    public static final List&lt;PokemonMetadata&gt; baseValues;
+
+    static {
+<span class="fc" id="L15">        baseValues = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L16">        String filePath = &quot;src/test/java/fr/univavignon/pokedex/api/baseValues.txt&quot;;</span>
+<span class="fc" id="L17">        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {</span>
+            String line;
+<span class="fc bfc" id="L19" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L20">                String[] values = line.split(&quot;\t&quot;);</span>
+<span class="fc" id="L21">                int index = Integer.parseInt(values[0]);</span>
+<span class="fc" id="L22">                String name = values[1];</span>
+<span class="fc" id="L23">                int attack = Integer.parseInt(values[2]);</span>
+<span class="fc" id="L24">                int defense = Integer.parseInt(values[3]);</span>
+<span class="fc" id="L25">                int stamina = Integer.parseInt(values[4]);</span>
+<span class="fc" id="L26">                baseValues.add(new PokemonMetadata(index, name, attack, defense, stamina));</span>
+<span class="fc" id="L27">            }</span>
+<span class="nc" id="L28">        } catch (IOException e) {</span>
+<span class="nc" id="L29">            System.err.println(&quot;Error reading the file: &quot; + e.getMessage());</span>
+<span class="fc" id="L30">        }</span>
+<span class="fc" id="L31">    }</span>
+
+    private final List&lt;Pokemon&gt; pokemonList;
+    private final IPokemonFactory iPokemonFactory;
+    private final IPokemonMetadataProvider iPokemonMetadataProvider;
+
+
+
+<span class="fc" id="L39">    Pokedex(IPokemonMetadataProvider pokemonMetadataProvider, IPokemonFactory pokemonFactory) {</span>
+<span class="fc" id="L40">        pokemonList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L41">        this.iPokemonFactory = pokemonFactory;</span>
+<span class="fc" id="L42">        this.iPokemonMetadataProvider = pokemonMetadataProvider;</span>
+<span class="fc" id="L43">    }</span>
+
+    @Override
+    public int size() {
+<span class="fc" id="L47">        return pokemonList.size();</span>
+    }
+
+    /**
+     * Adds the given &lt;tt&gt;pokemon&lt;/tt&gt; to this pokedex and returns
+     * it unique index.
+     *
+     * @param pokemon Pokemon to add to this pokedex.
+     * @return Index of this pokemon relative to this pokedex.
+     */
+    @Override
+    public int addPokemon(Pokemon pokemon) {
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if (pokemon == null) {</span>
+<span class="fc" id="L60">            throw new IllegalArgumentException(&quot;Pokemon cannot be null&quot;);</span>
+        }
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">        if (pokemonList == null) {</span>
+<span class="nc" id="L63">            throw new IllegalStateException(&quot;Pokemon list is not initialized&quot;);</span>
+        }
+<span class="fc" id="L65">        pokemonList.add(pokemon);</span>
+<span class="fc" id="L66">        return pokemonList.size() - 1;</span>
+    }
+
+    @Override
+    public Pokemon getPokemon(int id) throws PokedexException {
+        try {
+<span class="fc" id="L72">            return pokemonList.get(id);</span>
+<span class="fc" id="L73">        } catch (IndexOutOfBoundsException iob) {</span>
+<span class="fc" id="L74">            throw new PokedexException(&quot;Invalid Pokemon id&quot;);</span>
+        }
+    }
+
+    @Override
+    public List&lt;Pokemon&gt; getPokemons() {
+<span class="fc" id="L80">        return this.pokemonList;</span>
+    }
+
+    @Override
+    public List&lt;Pokemon&gt; getPokemons(Comparator&lt;Pokemon&gt; order) {
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        if (order == null) {</span>
+<span class="fc" id="L86">            throw new IllegalArgumentException(&quot;Comparator cannot be null&quot;);</span>
+        }
+<span class="fc" id="L88">        List&lt;Pokemon&gt; sortedPokemons = new ArrayList&lt;&gt;(pokemonList); // Create a copy</span>
+<span class="fc" id="L89">        sortedPokemons.sort(order); // Sort using the provided comparator</span>
+<span class="fc" id="L90">        return sortedPokemons; // Return the sorted copy</span>
+    }
+
+    @Override
+    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+<span class="fc" id="L95">        return iPokemonMetadataProvider.getPokemonMetadata(index);</span>
+    }
+
+    @Override
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+<span class="fc" id="L100">        return iPokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
