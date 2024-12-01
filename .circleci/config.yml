@@ -39,6 +39,13 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash) || echo "Codecov upload failed"
       - codecov/upload:
           file: ./target/site/jacoco/jacoco.xml
+      - name: Générer Javadoc
+        run: mvn -B javadoc:javadoc
+      - name: Deploiement sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/reports/apidocs
 
   deploy:
     docker:
