@@ -47,7 +47,7 @@ jobs:
       - run:
           name: Deploy Javadoc to GitHub Pages
           command: |
-            git config --global user.email "your-email@example.com"
+            git config --global user.email "t-email@example.com"
             git config --global user.name "Your Name"
             git clone --branch gh-pages https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages
             mkdir -p gh-pages/javadoc
@@ -55,7 +55,7 @@ jobs:
             cd gh-pages
             git add .
             git commit -m "Deploy Javadoc to GitHub Pages [skip ci]"
-            git push https://${GH_PAGES_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages || echo "Deployment failed"
+            git push https://${{ secrets.GITHUB_TOKEN }}@github.com/tiagofdev/ceri-m1-techniques-de-test.git gh-pages || echo "Deployment failed"  
   
 
   deploy:
