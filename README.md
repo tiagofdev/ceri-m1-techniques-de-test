@@ -9,6 +9,10 @@ M1 ILSEN CLASSIQUE
 
 [![codecov](https://codecov.io/gh/tiagofdev/ceri-m1-techniques-de-test/graph/badge.svg?token=NKE1XLFV7C)](https://codecov.io/gh/tiagofdev/ceri-m1-techniques-de-test)
 
+[![Checkstyle](https://img.shields.io/badge/Checkstyle-Report-brightgreen)](https://tiagofdev.github.io/ceri-m1-techniques-de-test/target/site/checkstyle.html)
+
+
+
 # Projet Techniques de Test
 
 Ce projet est une implémentation en Java d'une API Pokedex, conçue pour modéliser et récupérer des informations sur divers Pokémon. L'application inclut des fonctionnalités telles que la récupération de métadonnées de Pokémon, la création d'instances de Pokémon, et la gestion d'une collection Pokedex.

@@ -2,10 +2,14 @@
 # Stacks detected: deps:java:.
 version: 2.1
 
+executors:
+  java-docker:
+    docker:
+      - image: cimg/openjdk:21.0  # Predefine the Docker image to use
+
 jobs:
   test-java:
-    docker:
-      - image: cimg/openjdk:21.0
+    executor: java-docker  # Reference the predefined executor
     steps:
       - checkout
       - run:
