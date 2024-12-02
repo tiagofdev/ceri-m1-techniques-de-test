@@ -9,16 +9,39 @@
      changed by other methods during gameplay.
      iv is calculated as attack + defense + stamina / 45
      if all 3 stats are 15 then the sum of them 45 / 45 will a perfect 100% iv */
+
+    /**
+     * .
+     * @return IV_TOTAL
+     */
+    public double getIV_TOTAL() {
+<span class="nc" id="L18">        return IV_TOTAL;</span>
+    }
+
+    /**
+     * IV_TOTAL default 45.
+     */
+<span class="fc" id="L24">    private final double IV_TOTAL = 45.0;</span>
+
+    /**
+     * .
+     * @param index Pokemon index.
+     * @param cp    Pokemon CP.
+     * @param hp    Pokemon HP.
+     * @param dust  Required dust for upgrading pokemon.
+     * @param candy Required candy for upgrading pokemon.
+     * @return
+     */
     @Override
-    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+    public Pokemon createPokemon(final int index, final int cp, final int hp, final int dust, final int candy) {
         PokemonMetadata metadata;
         try {
-<span class="fc" id="L16">            metadata = Pokedex.BASE_VALUES.get(index - 1);</span>
-<span class="fc" id="L17">            double iv = (metadata.getAttack() + metadata.getDefense() + metadata.getStamina()) / 45.0;</span>
-<span class="fc" id="L18">            return new Pokemon(metadata.getIndex(), metadata.getName(), metadata.getAttack(), metadata.getDefense(),</span>
-<span class="fc" id="L19">                    metadata.getStamina(), cp, hp, dust, candy, iv);</span>
-<span class="fc" id="L20">        } catch (IndexOutOfBoundsException iob) {</span>
-<span class="fc" id="L21">            return null;</span>
+<span class="fc" id="L39">            metadata = Pokedex.BASE_VALUES.get(index - 1);</span>
+<span class="fc" id="L40">            double iv = (metadata.getAttack() + metadata.getDefense() + metadata.getStamina()) / IV_TOTAL;</span>
+<span class="fc" id="L41">            return new Pokemon(metadata.getIndex(), metadata.getName(), metadata.getAttack(), metadata.getDefense(),</span>
+<span class="fc" id="L42">                    metadata.getStamina(), cp, hp, dust, candy, iv);</span>
+<span class="fc" id="L43">        } catch (IndexOutOfBoundsException iob) {</span>
+<span class="fc" id="L44">            return null;</span>
         }
     }
 }

@@ -1,41 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TrainerFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Mon Application</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">TrainerFactory.java</span></div><h1>TrainerFactory.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
 
-<span class="fc" id="L3">public class TrainerFactory implements IPokemonTrainerFactory {</span>
+public class TrainerFactory implements IPokemonTrainerFactory {
 
-    String name;
-    Team team;
+    /**
+     * name.
+     */
+    private String name;
+    /**
+     * team.
+     */
+    private Team team;
+    /**
+     * metadataProvider.
+     */
+    private IPokemonMetadataProvider metadataProvider;
+    /**
+     * pokemonFactory.
+     */
+    private IPokemonFactory pokemonFactory;
 
-    IPokemonMetadataProvider metadataProvider;
-    IPokemonFactory pokemonFactory;
+    /**
+     * Constructor.
+     */
+<span class="fc" id="L25">    public TrainerFactory() {</span>
+<span class="fc" id="L26">        metadataProvider = new PokemonMetadataProvider();</span>
+<span class="fc" id="L27">        pokemonFactory = new PokemonFactory();</span>
+<span class="fc" id="L28">    }</span>
 
-
+    /**
+     * .
+     * @param name           Name of the created trainer.
+     * @param team           Team of the created trainer.
+     * @param pokedexFactory Factory to use for creating associated pokedex instance.
+     * @return
+     */
     @Override
-    public PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory) {
-<span class="fc bfc" id="L14" title="All 4 branches covered.">        if (name == null || name.trim().isEmpty()) {</span>
-<span class="fc" id="L15">            throw new IllegalArgumentException(&quot;Trainer name cannot be null or empty&quot;);</span>
+    public PokemonTrainer createTrainer(final String name, final Team team, final IPokedexFactory pokedexFactory) {
+<span class="fc bfc" id="L39" title="All 4 branches covered.">        if (name == null || name.trim().isEmpty()) {</span>
+<span class="fc" id="L40">            throw new IllegalArgumentException(&quot;Trainer name cannot be null or empty&quot;);</span>
         }
-<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (team == null) {</span>
-<span class="fc" id="L18">            throw new IllegalArgumentException(&quot;Team cannot be null&quot;);</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (team == null) {</span>
+<span class="fc" id="L43">            throw new IllegalArgumentException(&quot;Team cannot be null&quot;);</span>
         }
-<span class="fc bfc" id="L20" title="All 2 branches covered.">        if (pokedexFactory == null) {</span>
-<span class="fc" id="L21">            throw new IllegalArgumentException(&quot;PokedexFactory cannot be null&quot;);</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (pokedexFactory == null) {</span>
+<span class="fc" id="L46">            throw new IllegalArgumentException(&quot;PokedexFactory cannot be null&quot;);</span>
         }
 
-        // Initialize metadataProvider and pokemonFactory (consider default values or mock for testing)
-<span class="fc" id="L25">        PokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();</span>
-<span class="fc" id="L26">        PokemonFactory pokemonFactory = new PokemonFactory();</span>
 
         // Create Pokedex using the factory
-<span class="fc" id="L29">        Pokedex pokedex = (Pokedex) pokedexFactory.createPokedex(metadataProvider, pokemonFactory);</span>
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        if (pokedex == null) {</span>
-<span class="nc" id="L31">            throw new IllegalStateException(&quot;Failed to create Pokedex from the factory&quot;);</span>
+<span class="fc" id="L51">        Pokedex pokedex = (Pokedex) pokedexFactory.createPokedex(metadataProvider, pokemonFactory);</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (pokedex == null) {</span>
+<span class="nc" id="L53">            throw new IllegalStateException(&quot;Failed to create Pokedex from the factory&quot;);</span>
         }
 
         // Return the PokemonTrainer object with valid parameters
-<span class="fc" id="L35">        return new PokemonTrainer(name, team, pokedex);</span>
+<span class="fc" id="L57">        return new PokemonTrainer(name, team, pokedex);</span>
     }
 }
-
 
 // PokemonTrainer &lt;- TrainerFactory &lt;- PokedexFactory &lt;- MetadataProvider + PokemonFactory
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

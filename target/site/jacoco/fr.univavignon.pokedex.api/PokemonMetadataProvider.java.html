@@ -2,12 +2,18 @@
 
 <span class="fc" id="L3">public class PokemonMetadataProvider implements IPokemonMetadataProvider {</span>
 
+    /**
+     * .
+     * @param index Index of the pokemon to retrieve metadata for.
+     * @return
+     * @throws PokedexException
+     */
     @Override
-    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+    public PokemonMetadata getPokemonMetadata(final int index) throws PokedexException {
         try {
-<span class="fc" id="L8">            return Pokedex.BASE_VALUES.get(index - 1);</span>
-<span class="fc" id="L9">        } catch (IndexOutOfBoundsException iob) {</span>
-<span class="fc" id="L10">            throw new PokedexException(&quot;Invalid Pokemon Index&quot;);</span>
+<span class="fc" id="L14">            return Pokedex.BASE_VALUES.get(index - 1);</span>
+<span class="fc" id="L15">        } catch (IndexOutOfBoundsException iob) {</span>
+<span class="fc" id="L16">            throw new PokedexException(&quot;Invalid Pokemon Index&quot;);</span>
         }
     }
 }

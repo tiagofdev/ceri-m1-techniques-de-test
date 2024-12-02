@@ -14,14 +14,14 @@ public class PokemonFactory implements IPokemonFactory {
      * .
      * @return IV_TOTAL
      */
-    public int getIV_TOTAL() {
+    public double getIV_TOTAL() {
         return IV_TOTAL;
     }
 
     /**
      * IV_TOTAL default 45.
      */
-    private final int IV_TOTAL = 45;
+    private final double IV_TOTAL = 45.0;
 
     /**
      * .

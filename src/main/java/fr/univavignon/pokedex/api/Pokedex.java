@@ -54,7 +54,7 @@ public class Pokedex implements IPokedex {
      * @param pokemonMetadataProvider
      * @param pokemonFactory
      */
-    Pokedex(IPokemonMetadataProvider pokemonMetadataProvider, IPokemonFactory pokemonFactory) {
+    Pokedex(final IPokemonMetadataProvider pokemonMetadataProvider, final IPokemonFactory pokemonFactory) {
         pokemonList = new ArrayList<>();
         this.iPokemonFactory = pokemonFactory;
         this.iPokemonMetadataProvider = pokemonMetadataProvider;
@@ -77,7 +77,7 @@ public class Pokedex implements IPokedex {
      * @return Index of this pokemon relative to this pokedex.
      */
     @Override
-    public int addPokemon(Pokemon pokemon) {
+    public int addPokemon(final Pokemon pokemon) {
         if (pokemon == null) {
             throw new IllegalArgumentException("Pokemon cannot be null");
         }
@@ -95,7 +95,7 @@ public class Pokedex implements IPokedex {
      * @throws PokedexException
      */
     @Override
-    public Pokemon getPokemon(int id) throws PokedexException {
+    public Pokemon getPokemon(final int id) throws PokedexException {
         try {
             return pokemonList.get(id);
         } catch (IndexOutOfBoundsException iob) {
@@ -118,7 +118,7 @@ public class Pokedex implements IPokedex {
      * @return List<Pokemon>
      */
     @Override
-    public List<Pokemon> getPokemons(Comparator<Pokemon> order) {
+    public List<Pokemon> getPokemons(final Comparator<Pokemon> order) {
         if (order == null) {
             throw new IllegalArgumentException("Comparator cannot be null");
         }
@@ -134,7 +134,7 @@ public class Pokedex implements IPokedex {
      * @throws PokedexException
      */
     @Override
-    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+    public PokemonMetadata getPokemonMetadata(final int index) throws PokedexException {
         return iPokemonMetadataProvider.getPokemonMetadata(index);
     }
 
@@ -148,7 +148,7 @@ public class Pokedex implements IPokedex {
      * @return
      */
     @Override
-    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+    public Pokemon createPokemon(final int index, final int cp, final int hp, final int dust, final int candy) {
         return iPokemonFactory.createPokemon(index, cp, hp, dust, candy);
     }
 }

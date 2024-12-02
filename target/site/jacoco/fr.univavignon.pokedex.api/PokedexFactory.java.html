@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokedexFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Mon Application</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokedexFactory.java</span></div><h1>PokedexFactory.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
 
 <span class="fc" id="L3">public class PokedexFactory implements IPokedexFactory {</span>
-    IPokedex iPokedex;
+    /**
+     * .
+     * @return IPokedex
+     */
+    public IPokedex getiPokedex() {
+<span class="nc" id="L9">        return iPokedex;</span>
+    }
 
+    /**
+     * .
+     * @param pokedex
+     */
+    public void setiPokedex(final IPokedex pokedex) {
+<span class="nc" id="L17">        this.iPokedex = pokedex;</span>
+<span class="nc" id="L18">    }</span>
+
+    /**
+     * iPokedex.
+     */
+    private IPokedex iPokedex;
+
+    /**
+     * createPokedex().
+     * @param metadataProvider Metadata provider the created pokedex will use.
+     * @param pokemonFactory   Pokemon factory the created pokedex will use.
+     * @return IPokedex
+     */
     @Override
-    public IPokedex createPokedex(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
-<span class="fc bfc" id="L8" title="All 4 branches covered.">        if (metadataProvider == null || pokemonFactory == null) {</span>
-<span class="fc" id="L9">            throw new IllegalArgumentException(&quot;Metadata provider and Pokemon factory cannot be null&quot;);</span>
+    public IPokedex createPokedex(final IPokemonMetadataProvider metadataProvider, final IPokemonFactory pokemonFactory) {
+<span class="fc bfc" id="L33" title="All 4 branches covered.">        if (metadataProvider == null || pokemonFactory == null) {</span>
+<span class="fc" id="L34">            throw new IllegalArgumentException(&quot;Metadata provider and Pokemon factory cannot be null&quot;);</span>
         }
-<span class="fc" id="L11">        return new Pokedex(metadataProvider, pokemonFactory);</span>
+<span class="fc" id="L36">        return new Pokedex(metadataProvider, pokemonFactory);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

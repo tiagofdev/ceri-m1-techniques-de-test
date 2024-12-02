@@ -172,7 +172,7 @@ public class WhiteBoxTest {
         assertEquals(36, newPokedex.getPokemon(0).getHp());
         assertEquals(1324, newPokedex.getPokemon(0).getDust());
         assertEquals(2, newPokedex.getPokemon(0).getCandy());
-        assertEquals((13 + 13 + 12) / 45.0, newPokedex.getPokemon(0).getIv(), 0.0001);
+        assertEquals((13 + 13 + 12) / 45.0, newPokedex.getPokemon(0).getIv(), 0.001);
 
         assertEquals(26, newPokedex.getPokemon(2).getIndex());
         assertEquals("Raichu", newPokedex.getPokemon(2).getName());

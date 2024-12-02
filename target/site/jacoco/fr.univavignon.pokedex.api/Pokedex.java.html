@@ -40,7 +40,13 @@ public class Pokedex implements IPokedex {
      * List&lt;Pokemon&gt; pokemonList.
      */
     private final List&lt;Pokemon&gt; pokemonList;
+    /**
+     * iPokemonFactory.
+     */
     private final IPokemonFactory iPokemonFactory;
+    /**
+     * iPokemonMetadataProvider.
+     */
     private final IPokemonMetadataProvider iPokemonMetadataProvider;
 
     /**
@@ -48,11 +54,11 @@ public class Pokedex implements IPokedex {
      * @param pokemonMetadataProvider
      * @param pokemonFactory
      */
-<span class="fc" id="L51">    Pokedex(IPokemonMetadataProvider pokemonMetadataProvider, IPokemonFactory pokemonFactory) {</span>
-<span class="fc" id="L52">        pokemonList = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L53">        this.iPokemonFactory = pokemonFactory;</span>
-<span class="fc" id="L54">        this.iPokemonMetadataProvider = pokemonMetadataProvider;</span>
-<span class="fc" id="L55">    }</span>
+<span class="fc" id="L57">    Pokedex(final IPokemonMetadataProvider pokemonMetadataProvider, final IPokemonFactory pokemonFactory) {</span>
+<span class="fc" id="L58">        pokemonList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L59">        this.iPokemonFactory = pokemonFactory;</span>
+<span class="fc" id="L60">        this.iPokemonMetadataProvider = pokemonMetadataProvider;</span>
+<span class="fc" id="L61">    }</span>
 
     /**
      * Returns the size of the internal pokemonList.
@@ -60,7 +66,7 @@ public class Pokedex implements IPokedex {
      */
     @Override
     public int size() {
-<span class="fc" id="L63">        return pokemonList.size();</span>
+<span class="fc" id="L69">        return pokemonList.size();</span>
     }
 
     /**
@@ -71,15 +77,15 @@ public class Pokedex implements IPokedex {
      * @return Index of this pokemon relative to this pokedex.
      */
     @Override
-    public int addPokemon(Pokemon pokemon) {
-<span class="fc bfc" id="L75" title="All 2 branches covered.">        if (pokemon == null) {</span>
-<span class="fc" id="L76">            throw new IllegalArgumentException(&quot;Pokemon cannot be null&quot;);</span>
+    public int addPokemon(final Pokemon pokemon) {
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (pokemon == null) {</span>
+<span class="fc" id="L82">            throw new IllegalArgumentException(&quot;Pokemon cannot be null&quot;);</span>
         }
-<span class="pc bpc" id="L78" title="1 of 2 branches missed.">        if (pokemonList == null) {</span>
-<span class="nc" id="L79">            throw new IllegalStateException(&quot;Pokemon list is not initialized&quot;);</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        if (pokemonList == null) {</span>
+<span class="nc" id="L85">            throw new IllegalStateException(&quot;Pokemon list is not initialized&quot;);</span>
         }
-<span class="fc" id="L81">        pokemonList.add(pokemon);</span>
-<span class="fc" id="L82">        return pokemonList.size() - 1;</span>
+<span class="fc" id="L87">        pokemonList.add(pokemon);</span>
+<span class="fc" id="L88">        return pokemonList.size() - 1;</span>
     }
 
     /**
@@ -89,11 +95,11 @@ public class Pokedex implements IPokedex {
      * @throws PokedexException
      */
     @Override
-    public Pokemon getPokemon(int id) throws PokedexException {
+    public Pokemon getPokemon(final int id) throws PokedexException {
         try {
-<span class="fc" id="L94">            return pokemonList.get(id);</span>
-<span class="fc" id="L95">        } catch (IndexOutOfBoundsException iob) {</span>
-<span class="fc" id="L96">            throw new PokedexException(&quot;Invalid Pokemon id&quot;);</span>
+<span class="fc" id="L100">            return pokemonList.get(id);</span>
+<span class="fc" id="L101">        } catch (IndexOutOfBoundsException iob) {</span>
+<span class="fc" id="L102">            throw new PokedexException(&quot;Invalid Pokemon id&quot;);</span>
         }
     }
 
@@ -103,7 +109,7 @@ public class Pokedex implements IPokedex {
      */
     @Override
     public List&lt;Pokemon&gt; getPokemons() {
-<span class="fc" id="L106">        return this.pokemonList;</span>
+<span class="fc" id="L112">        return this.pokemonList;</span>
     }
 
     /**
@@ -112,13 +118,13 @@ public class Pokedex implements IPokedex {
      * @return List&lt;Pokemon&gt;
      */
     @Override
-    public List&lt;Pokemon&gt; getPokemons(Comparator&lt;Pokemon&gt; order) {
-<span class="fc bfc" id="L116" title="All 2 branches covered.">        if (order == null) {</span>
-<span class="fc" id="L117">            throw new IllegalArgumentException(&quot;Comparator cannot be null&quot;);</span>
+    public List&lt;Pokemon&gt; getPokemons(final Comparator&lt;Pokemon&gt; order) {
+<span class="fc bfc" id="L122" title="All 2 branches covered.">        if (order == null) {</span>
+<span class="fc" id="L123">            throw new IllegalArgumentException(&quot;Comparator cannot be null&quot;);</span>
         }
-<span class="fc" id="L119">        List&lt;Pokemon&gt; sortedPokemons = new ArrayList&lt;&gt;(pokemonList); // Create a copy</span>
-<span class="fc" id="L120">        sortedPokemons.sort(order); // Sort using the provided comparator</span>
-<span class="fc" id="L121">        return sortedPokemons; // Return the sorted copy</span>
+<span class="fc" id="L125">        List&lt;Pokemon&gt; sortedPokemons = new ArrayList&lt;&gt;(pokemonList); // Create a copy</span>
+<span class="fc" id="L126">        sortedPokemons.sort(order); // Sort using the provided comparator</span>
+<span class="fc" id="L127">        return sortedPokemons; // Return the sorted copy</span>
     }
 
     /**
@@ -128,8 +134,8 @@ public class Pokedex implements IPokedex {
      * @throws PokedexException
      */
     @Override
-    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-<span class="fc" id="L132">        return iPokemonMetadataProvider.getPokemonMetadata(index);</span>
+    public PokemonMetadata getPokemonMetadata(final int index) throws PokedexException {
+<span class="fc" id="L138">        return iPokemonMetadataProvider.getPokemonMetadata(index);</span>
     }
 
     /**
@@ -142,8 +148,8 @@ public class Pokedex implements IPokedex {
      * @return
      */
     @Override
-    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-<span class="fc" id="L146">        return iPokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
+    public Pokemon createPokemon(final int index, final int cp, final int hp, final int dust, final int candy) {
+<span class="fc" id="L152">        return iPokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
