@@ -17,11 +17,14 @@ M1 ILSEN CLASSIQUE
 
 # Projet Techniques de Test
 
-Ce projet est une implémentation en Java d'une API Pokedex, conçue pour modéliser et récupérer des informations sur divers Pokémon. L'application inclut des fonctionnalités telles que la récupération de métadonnées de Pokémon, la création d'instances de Pokémon, et la gestion d'une collection Pokedex.
+Ce projet est une implémentation en Java d'une API Pokedex, conçue pour modéliser et récupérer des informations sur
+divers Pokémon. L'application inclut des fonctionnalités telles que la récupération de métadonnées de Pokémon, la
+création d'instances de Pokémon, et la gestion d'une collection Pokedex.
 
 ## Structure et Objectif du Projet
 
-L'API Pokedex définit plusieurs interfaces, dont :
+L'API Pokedex définit plusieurs interfaces, dont:
+
 - **`IPokedex`** : Gère une liste de Pokémon, permettant leur récupération, tri et ajout.
 - **`IPokemonFactory`** : Responsable de la création d'instances de Pokémon.
 - **`IPokemonMetadataProvider`** : Fournit les métadonnées sur les Pokémon, comme les statistiques et les noms.
@@ -30,28 +33,45 @@ Ces interfaces permettent des implémentations extensibles qui peuvent être tes
 
 ## Approche de Test
 
-Ce projet utilise **JUnit 4.13.2** et **Mockito** pour les tests. Les tests visent à vérifier la fonctionnalité et le comportement de chaque interface et classe pour garantir leur exactitude et fiabilité. Les principales techniques de test incluent :
-- **Tests Unitaires** : Chaque méthode d'interface et fonction de classe est testée isolément pour confirmer qu'elle se comporte comme prévu.
-- **Mocking** : Mockito est utilisé pour créer des mocks de dépendances, permettant des tests isolés pour chaque composant. Par exemple, des mocks sont créés pour les dépendances telles que `IPokemonMetadataProvider` et `IPokemonFactory` afin de tester l'interface `IPokedex` indépendamment.
-- **Vérification du Comportement** : La méthode `verify` de Mockito assure que certaines méthodes sont appelées comme prévu avec des arguments spécifiques.
+Ce projet utilise **JUnit 4.13.2** et **Mockito** pour les tests. Les tests visent à vérifier la fonctionnalité et le
+comportement de chaque interface et classe pour garantir leur exactitude et fiabilité. Les principales techniques de
+test incluent:
+
+- **Tests Unitaires**: Chaque méthode d'interface et fonction de classe est testée isolément pour confirmer qu'elle se
+  comporte comme prévu.
+- **Mocking**: Mockito est utilisé pour créer des mocks de dépendances, permettant des tests isolés pour chaque
+  composant. Par exemple, des mocks sont créés pour les dépendances telles que `IPokemonMetadataProvider`
+  et `IPokemonFactory` afin de tester l'interface `IPokedex` indépendamment.
+- **Vérification du Comportement**: La méthode `verify` de Mockito assure que certaines méthodes sont appelées comme
+  prévu avec des arguments spécifiques.
 
 ## Outils et Technologies
 
 ### Java et Maven
-- **Java** : Le projet utilise Java 21, exploitant les fonctionnalités modernes du langage.
-- **Maven** : Utilisé pour la gestion des dépendances et l'automatisation du build.
+
+- **Java**: Le projet utilise Java 21, exploitant les fonctionnalités modernes du langage.
+- **Maven**: Utilisé pour la gestion des dépendances et l'automatisation du build.
 
 ### Intégration Continue avec CircleCI
-- **CircleCI** : Un pipeline CircleCI est configuré pour l'intégration continue. Le pipeline défini dans `config.yml` inclut :
-  - **Mise en Cache des Dépendances** : Des fichiers clés (comme `pom.xml`) sont utilisés pour créer une clé de cache, accélérant les builds.
-  - **Tests et Vérification** : `mvn test` exécute les tests unitaires, tandis que `mvn verify` garantit que le projet est bien construit.
-  - **Rapport de Couverture** : La couverture des tests est envoyée à Codecov, améliorant la visibilité de la qualité et de la couverture du code.
+
+- **CircleCI**: Un pipeline CircleCI est configuré pour l'intégration continue. Le pipeline défini dans `config.yml`
+  inclut:
+    - **Mise en Cache des Dépendances**: Des fichiers clés (comme `pom.xml`) sont utilisés pour créer une clé de cache,
+      accélérant les builds.
+    - **Tests et Vérification**: `mvn test` exécute les tests unitaires, tandis que `mvn verify` garantit que le projet
+      est bien construit.
+    - **Rapport de Couverture**: La couverture des tests est envoyée à Codecov, améliorant la visibilité de la qualité
+      et de la couverture du code.
 
 ### Couverture de Code avec Codecov
-- **Codecov** : Le projet intègre Codecov pour surveiller la couverture de code. Les rapports de couverture sont téléchargés sur Codecov, fournissant des informations sur la part de code testée et identifiant les zones non testées.
+
+- **Codecov**: Le projet intègre Codecov pour surveiller la couverture de code. Les rapports de couverture sont
+  téléchargés sur Codecov, fournissant des informations sur la part de code testée et identifiant les zones non testées.
 
 ### Configuration Supplémentaire
-- **Docker** : Le pipeline s'exécute dans des environnements Docker, permettant des builds cohérents et isolés. Le projet utilise l'image `cimg/openjdk:21.0` pour l'environnement de build Java.
+
+- **Docker**: Le pipeline s'exécute dans des environnements Docker, permettant des builds cohérents et isolés. Le projet
+  utilise l'image `cimg/openjdk:21.0` pour l'environnement de build Java.
 
 ---
 
@@ -62,8 +82,10 @@ Ce projet utilise **JUnit 4.13.2** et **Mockito** pour les tests. Les tests vise
 
 ## Introduction
 
-Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
-Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant la roadmap suivante : 
+Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques
+de tests.  
+Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant la roadmap suivante :
+
 - Setup du projet
 - Mise en place des outils d’intégration continue
 - Écriture des tests unitaires
@@ -72,7 +94,9 @@ Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant 
 - Documentation et conventions de style
 - Test d'une implémentation donnée
 
-Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la main.
+Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous
+n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la
+main.
 
 ## Sujets
 

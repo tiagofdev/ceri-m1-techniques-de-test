@@ -3,7 +3,6 @@ package fr.univavignon.pokedex.api;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -34,7 +33,6 @@ public class WhiteBoxTest {
 
         trainerFactory = new TrainerFactory();
     }
-
 
 
     // Testing IPokemonFactory
@@ -174,7 +172,7 @@ public class WhiteBoxTest {
         assertEquals(36, newPokedex.getPokemon(0).getHp());
         assertEquals(1324, newPokedex.getPokemon(0).getDust());
         assertEquals(2, newPokedex.getPokemon(0).getCandy());
-        assertEquals((13+13+12)/45.0, newPokedex.getPokemon(0).getIv(), 0.0001);
+        assertEquals((13 + 13 + 12) / 45.0, newPokedex.getPokemon(0).getIv(), 0.001);
 
         assertEquals(26, newPokedex.getPokemon(2).getIndex());
         assertEquals("Raichu", newPokedex.getPokemon(2).getName());
@@ -185,7 +183,7 @@ public class WhiteBoxTest {
         assertEquals(16, newPokedex.getPokemon(2).getHp());
         assertEquals(1468, newPokedex.getPokemon(2).getDust());
         assertEquals(5, newPokedex.getPokemon(2).getCandy());
-        assertEquals((7+8+9)/45.0, newPokedex.getPokemon(2).getIv(), 0.0001);
+        assertEquals((7 + 8 + 9) / 45.0, newPokedex.getPokemon(2).getIv(), 0.0001);
 
         // IPokedex.size()
         assertEquals(3, newPokedex.size());
@@ -225,26 +223,29 @@ public class WhiteBoxTest {
 
     }
 
-
+    // Test Pokedex
     @Test
     public void testPokedexBaseValues() throws PokedexException {
-        assertNotNull(Pokedex.baseValues);
-        assertEquals(151, Pokedex.baseValues.size());
-        assertEquals(pokedex.getPokemonMetadata(24).getName(), Pokedex.baseValues.get(24-1).getName());
+        assertNotNull(Pokedex.BASE_VALUES);
+        assertEquals(151, Pokedex.BASE_VALUES.size());
+        assertEquals(pokedex.getPokemonMetadata(24).getName(), Pokedex.BASE_VALUES.get(24 - 1).getName());
     }
 
+    // Test Pokedex
     @Test(expected = PokedexException.class)
     public void testPokedexGetPokemonOutOfBounds() throws PokedexException {
         pokedex.getPokemon(-20);
     }
 
+    // Test Pokedex
     @Test(expected = IllegalArgumentException.class)
     public void testAddPokemon_NullPokemon() {
         pokedex.addPokemon(null);
     }
 
+    // Test Pokedex
     @Test
-    public void testgetPokemonsComparateEmptyList() {
+    public void testGetPokemonsComparateEmptyList() {
         PokedexFactory pokedexFactory = new PokedexFactory();
         IPokedex newPokedex = pokedexFactory.createPokedex(pokedex, pokedex);
         assertEquals(0, newPokedex.size());
@@ -252,6 +253,7 @@ public class WhiteBoxTest {
         List<Pokemon> emptyList = newPokedex.getPokemons(attackComparator);
     }
 
+    // Test Pokedex
     @Test(expected = IllegalArgumentException.class)
     public void testAddPokemonsNullComparator() {
         List<Pokemon> newList = pokedex.getPokemons(null);
@@ -275,21 +277,25 @@ public class WhiteBoxTest {
 
     }
 
+    // Testing IPokemonTrainerFactory
     @Test(expected = IllegalArgumentException.class)
     public void testCreateTrainer_EmptyName() {
         PokemonTrainer trainer = trainerFactory.createTrainer("", Team.MYSTIC, pokedexFactory);
     }
 
+    // Testing IPokemonTrainerFactory
     @Test(expected = IllegalArgumentException.class)
     public void testCreateTrainer_NullName() {
         PokemonTrainer trainer = trainerFactory.createTrainer(null, Team.MYSTIC, pokedexFactory);
     }
 
+    // Testing IPokemonTrainerFactory
     @Test(expected = IllegalArgumentException.class)
     public void testCreateTrainer_NullTeam() {
         PokemonTrainer trainer = trainerFactory.createTrainer("Ash", null, pokedexFactory);
     }
 
+    // Testing IPokemonTrainerFactory
     @Test(expected = IllegalArgumentException.class)
     public void testCreateTrainer_NullPokedexFactory() {
         PokemonTrainer trainer = trainerFactory.createTrainer("Ash", Team.MYSTIC, null);

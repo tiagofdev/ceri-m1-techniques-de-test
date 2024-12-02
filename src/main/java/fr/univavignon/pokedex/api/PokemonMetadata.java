@@ -2,66 +2,95 @@ package fr.univavignon.pokedex.api;
 
 /**
  * Pokemon metadata POJO.
- * 
+ *
  * @author fv
  */
 public class PokemonMetadata {
 
-	/** Pokemon index. **/
-	private final int index;
+    /**
+     * Pokemon index.
+     **/
+    private final int index;
 
-	/** Pokemon name. **/
-	private final String name;
+    /**
+     * Pokemon name.
+     **/
+    private final String name;
 
-	/** Pokemon attack level. **/
-	private final int attack;
+    /**
+     * Pokemon attack level.
+     **/
+    private final int attack;
 
-	/** Pokemon defense level. **/
-	private final int defense;
+    /**
+     * Pokemon defense level.
+     **/
+    private final int defense;
 
-	/** Pokemon stamina level. **/
-	private final int stamina;
+    /**
+     * Pokemon stamina level.
+     **/
+    private final int stamina;
 
-	/**
-	 * Default constructor.
-	 * 
-	 * @param index Pokemon index.
-	 * @param name Pokemon name.
-	 * @param attack Attack level.
-	 * @param defense Defense level.
-	 * @param stamina Stamina level.
-	 */
-	public PokemonMetadata(final int index, final String name, final int attack, final int defense, final int stamina) {
-		this.index = index;
-		this.name = name;
-		this.attack = attack;
-		this.defense = defense;
-		this.stamina = stamina;
-	}
-	
-	/** Index getter. **/
-	public int getIndex() {
-		return index;
-	}
-	
-	/** Name getter.**/
-	public String getName() {
-		return name;
-	}
+    /**
+     * Default constructor.
+     *
+     * @param pindex   Pokemon index.
+     * @param pname    Pokemon name.
+     * @param pattack  Attack level.
+     * @param pdefense Defense level.
+     * @param pstamina Stamina level.
+     */
+    public PokemonMetadata(final int pindex,
+                           final String pname,
+                           final int pattack,
+                           final int pdefense,
+                           final int pstamina) {
+        this.index = pindex;
+        this.name = pname;
+        this.attack = pattack;
+        this.defense = pdefense;
+        this.stamina = pstamina;
+    }
 
-	/** Attack level getter. **/
-	public int getAttack() {
-		return attack;
-	}
+    /**
+     * Index getter.
+     * @return index
+     **/
+    public int getIndex() {
+        return index;
+    }
 
-	/** Defense level getter. **/
-	public int getDefense() {
-		return defense;
-	}
+    /**
+     * Name getter.
+     * @return name
+     **/
+    public String getName() {
+        return name;
+    }
 
-	/** Stamina level getter. **/
-	public int getStamina() {
-		return stamina;
-	}
+    /**
+     * Attack level getter.
+     * @return attack
+     **/
+    public int getAttack() {
+        return attack;
+    }
+
+    /**
+     * Defense level getter.
+     * @return defense
+     **/
+    public int getDefense() {
+        return defense;
+    }
+
+    /**
+     * Stamina level getter.
+     * @return stamina
+     **/
+    public int getStamina() {
+        return stamina;
+    }
 
 }

@@ -2,28 +2,49 @@ package fr.univavignon.pokedex.api;
 
 public class TrainerFactory implements IPokemonTrainerFactory {
 
-    String name;
-    Team team;
+    /**
+     * name.
+     */
+    private String name;
+    /**
+     * team.
+     */
+    private Team team;
+    /**
+     * metadataProvider.
+     */
+    private IPokemonMetadataProvider metadataProvider;
+    /**
+     * pokemonFactory.
+     */
+    private IPokemonFactory pokemonFactory;
 
-    IPokemonMetadataProvider metadataProvider;
-    IPokemonFactory pokemonFactory;
+    /**
+     * Constructor.
+     */
+    public TrainerFactory() {
+        metadataProvider = new PokemonMetadataProvider();
+        pokemonFactory = new PokemonFactory();
+    }
 
-
+    /**
+     * .
+     * @param pname           Name of the created trainer.
+     * @param pteam           Team of the created trainer.
+     * @param pokedexFactory Factory to use for creating associated pokedex instance.
+     * @return
+     */
     @Override
-    public PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory) {
-        if (name == null || name.trim().isEmpty()) {
+    public PokemonTrainer createTrainer(final String pname, final Team pteam, final IPokedexFactory pokedexFactory) {
+        if (pname == null || pname.trim().isEmpty()) {
             throw new IllegalArgumentException("Trainer name cannot be null or empty");
         }
-        if (team == null) {
+        if (pteam == null) {
             throw new IllegalArgumentException("Team cannot be null");
         }
         if (pokedexFactory == null) {
             throw new IllegalArgumentException("PokedexFactory cannot be null");
         }
-
-        // Initialize metadataProvider and pokemonFactory (consider default values or mock for testing)
-        PokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-        PokemonFactory pokemonFactory = new PokemonFactory();
 
         // Create Pokedex using the factory
         Pokedex pokedex = (Pokedex) pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
@@ -32,9 +53,8 @@ public class TrainerFactory implements IPokemonTrainerFactory {
         }
 
         // Return the PokemonTrainer object with valid parameters
-        return new PokemonTrainer(name, team, pokedex);
+        return new PokemonTrainer(pname, pteam, pokedex);
     }
 }
-
 
 // PokemonTrainer <- TrainerFactory <- PokedexFactory <- MetadataProvider + PokemonFactory
