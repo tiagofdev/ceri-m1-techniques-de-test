@@ -1,19 +1,19 @@
-#Mon Dec 02 10:30:16 CET 2024
+#Mon Dec 02 10:52:59 CET 2024
 C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokedex.java=1733089331126
 C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokedexFactory.java=1733089331127
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokemonFactory.java=1733089578304
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokemonMetadataProvider.java=1733089578209
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokemonTrainerFactory.java=1733089578292
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokedexException.java=1733089578285
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokedexFactory.java=1733131371093
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonComparators.java=1733131757308
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonFactory.java=1733131471099
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonMetadata.java=1733131788501
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonMetadataProvider.java=1733129907203
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonTrainer.java=1733131661677
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\Team.java=1733129907191
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\TrainerFactory.java=1733131661680
-C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\package-info.java=1733129156882
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokemonFactory.java=1733132549600
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokemonMetadataProvider.java=1733132549600
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokemonTrainerFactory.java=1733132549601
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokedexException.java=1733132549601
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokedexFactory.java=1733132549601
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonComparators.java=1733132549602
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonFactory.java=1733132549602
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonMetadata.java=1733132549603
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonMetadataProvider.java=1733132549603
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonTrainer.java=1733132549603
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\Team.java=1733132549604
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\TrainerFactory.java=1733132549604
+C\:\\Users\\Tiago\\dev\\Java\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\package-info.java=1733132549605
 configuration*?=5C076832D4F2A470A9A6C37932FB25B93B562968
-module-resource*?\:checkstyle-suppressions.xml=1477798C8A1EC20FD373A7E8FF58870F079EEAA5
-module-resource*?\:checkstyle-xpath-suppressions.xml=C13B19BEC833AF86B77234686F3F0D9ED6E8E798
+module-resource*?\:checkstyle-suppressions.xml=BCA15D11CDCC13F622445C9FECBC427DCD8AB0D4
+module-resource*?\:checkstyle-xpath-suppressions.xml=B2A086CE3A0FC1E202490B8216BF6584A3A60AD7
