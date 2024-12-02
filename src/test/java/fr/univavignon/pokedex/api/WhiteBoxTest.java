@@ -13,6 +13,8 @@ public class WhiteBoxTest {
 
     IPokemonMetadataProvider pokemonMetadataProvider;
     IPokemonFactory pokemonFactory;
+    IPokemonFactory rocketFactory;
+
     PokedexFactory pokedexFactory;
     IPokedex pokedex;
     IPokemonTrainerFactory trainerFactory;
@@ -24,12 +26,12 @@ public class WhiteBoxTest {
     public void setUp() {
         pokemonMetadataProvider = new PokemonMetadataProvider();
         pokemonFactory = new PokemonFactory();
-
+        rocketFactory = new PokemonFactory();
 
         pokedexFactory = new PokedexFactory();
-        pokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory);
-        pokemon1 = pokemonFactory.createPokemon(24, 281, 36, 1324, 2);
-        pokemon2 = pokemonFactory.createPokemon(25, 207, 52, 5836, 5);
+        pokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, rocketFactory);
+        pokemon1 = rocketFactory.createPokemon(24, 281, 36, 1324, 2);
+        pokemon2 = rocketFactory.createPokemon(25, 207, 52, 5836, 5);
 
         trainerFactory = new TrainerFactory();
     }
@@ -116,7 +118,7 @@ public class WhiteBoxTest {
     @Test
     public void testPokedexFactoryInstancing() {
         PokedexFactory pokedexFactory = new PokedexFactory();
-        IPokedex newPokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory);
+        IPokedex newPokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, rocketFactory);
         assertNotNull(newPokedex);
         assertTrue(newPokedex instanceof Pokedex);
     }
@@ -131,7 +133,7 @@ public class WhiteBoxTest {
     @Test(expected = IllegalArgumentException.class)
     public void testPokedexFactoryInstancingFirstNull() {
         PokedexFactory pokedexFactory = new PokedexFactory();
-        IPokedex newPokedex = pokedexFactory.createPokedex(null, pokemonFactory);
+        IPokedex newPokedex = pokedexFactory.createPokedex(null, rocketFactory);
     }
 
     @Test(expected = IllegalArgumentException.class)

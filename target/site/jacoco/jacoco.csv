@@ -6,6 +6,7 @@ Mon Application,fr.univavignon.pokedex.api,TrainerFactory,5,55,1,9,1,13,1,6,0,2
 Mon Application,fr.univavignon.pokedex.api,PokemonMetadataProvider,0,16,0,0,0,4,0,2,0,2
 Mon Application,fr.univavignon.pokedex.api,Pokedex,17,147,1,7,3,36,1,12,0,9
 Mon Application,fr.univavignon.pokedex.api,PokemonMetadata,0,33,0,0,0,12,0,6,0,6
+Mon Application,fr.univavignon.pokedex.api,RocketPokemonFactory,105,0,6,0,26,0,7,0,4,0
 Mon Application,fr.univavignon.pokedex.api,PokedexFactory,7,18,0,4,3,4,2,4,2,2
 Mon Application,fr.univavignon.pokedex.api,PokemonTrainer,3,18,0,0,1,7,1,3,1,3
 Mon Application,fr.univavignon.pokedex.api,PokemonComparators,41,0,0,0,8,0,3,0,3,0
