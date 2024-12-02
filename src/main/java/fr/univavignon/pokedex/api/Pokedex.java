@@ -40,7 +40,13 @@ public class Pokedex implements IPokedex {
      * List<Pokemon> pokemonList.
      */
     private final List<Pokemon> pokemonList;
+    /**
+     * iPokemonFactory.
+     */
     private final IPokemonFactory iPokemonFactory;
+    /**
+     * iPokemonMetadataProvider.
+     */
     private final IPokemonMetadataProvider iPokemonMetadataProvider;
 
     /**

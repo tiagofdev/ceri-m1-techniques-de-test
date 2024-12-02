@@ -9,12 +9,35 @@ public class PokemonFactory implements IPokemonFactory {
      changed by other methods during gameplay.
      iv is calculated as attack + defense + stamina / 45
      if all 3 stats are 15 then the sum of them 45 / 45 will a perfect 100% iv */
+
+    /**
+     * .
+     * @return IV_TOTAL
+     */
+    public int getIV_TOTAL() {
+        return IV_TOTAL;
+    }
+
+    /**
+     * IV_TOTAL default 45.
+     */
+    private final int IV_TOTAL = 45;
+
+    /**
+     * .
+     * @param index Pokemon index.
+     * @param cp    Pokemon CP.
+     * @param hp    Pokemon HP.
+     * @param dust  Required dust for upgrading pokemon.
+     * @param candy Required candy for upgrading pokemon.
+     * @return
+     */
     @Override
-    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+    public Pokemon createPokemon(final int index, final int cp, final int hp, final int dust, final int candy) {
         PokemonMetadata metadata;
         try {
             metadata = Pokedex.BASE_VALUES.get(index - 1);
-            double iv = (metadata.getAttack() + metadata.getDefense() + metadata.getStamina()) / 45.0;
+            double iv = (metadata.getAttack() + metadata.getDefense() + metadata.getStamina()) / IV_TOTAL;
             return new Pokemon(metadata.getIndex(), metadata.getName(), metadata.getAttack(), metadata.getDefense(),
                     metadata.getStamina(), cp, hp, dust, candy, iv);
         } catch (IndexOutOfBoundsException iob) {

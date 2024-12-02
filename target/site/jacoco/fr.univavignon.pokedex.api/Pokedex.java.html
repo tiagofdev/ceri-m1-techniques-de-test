@@ -7,44 +7,60 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Pokedex implements IPokedex.
+ */
 public class Pokedex implements IPokedex {
 
-    public static final List&lt;PokemonMetadata&gt; baseValues;
+    /**
+     * Static final base values.
+     */
+    public static final List&lt;PokemonMetadata&gt; BASE_VALUES;
 
     static {
-<span class="fc" id="L15">        baseValues = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L16">        String filePath = &quot;src/test/java/fr/univavignon/pokedex/api/baseValues.txt&quot;;</span>
-<span class="fc" id="L17">        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {</span>
+<span class="fc" id="L21">        BASE_VALUES = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L22">        String filePath = &quot;src/test/java/fr/univavignon/pokedex/api/baseValues.txt&quot;;</span>
+<span class="fc" id="L23">        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {</span>
             String line;
-<span class="fc bfc" id="L19" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
-<span class="fc" id="L20">                String[] values = line.split(&quot;\t&quot;);</span>
-<span class="fc" id="L21">                int index = Integer.parseInt(values[0]);</span>
-<span class="fc" id="L22">                String name = values[1];</span>
-<span class="fc" id="L23">                int attack = Integer.parseInt(values[2]);</span>
-<span class="fc" id="L24">                int defense = Integer.parseInt(values[3]);</span>
-<span class="fc" id="L25">                int stamina = Integer.parseInt(values[4]);</span>
-<span class="fc" id="L26">                baseValues.add(new PokemonMetadata(index, name, attack, defense, stamina));</span>
-<span class="fc" id="L27">            }</span>
-<span class="nc" id="L28">        } catch (IOException e) {</span>
-<span class="nc" id="L29">            System.err.println(&quot;Error reading the file: &quot; + e.getMessage());</span>
-<span class="fc" id="L30">        }</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L26">                String[] values = line.split(&quot;\t&quot;);</span>
+<span class="fc" id="L27">                int index = Integer.parseInt(values[0]);</span>
+<span class="fc" id="L28">                String name = values[1];</span>
+<span class="fc" id="L29">                int attack = Integer.parseInt(values[2]);</span>
+<span class="fc" id="L30">                int defense = Integer.parseInt(values[3]);</span>
+<span class="fc" id="L31">                int stamina = Integer.parseInt(values[4]);</span>
+<span class="fc" id="L32">                BASE_VALUES.add(new PokemonMetadata(index, name, attack, defense, stamina));</span>
+<span class="fc" id="L33">            }</span>
+<span class="nc" id="L34">        } catch (IOException e) {</span>
+<span class="nc" id="L35">            System.err.println(&quot;Error reading the file: &quot; + e.getMessage());</span>
+<span class="fc" id="L36">        }</span>
+<span class="fc" id="L37">    }</span>
 
+    /**
+     * List&lt;Pokemon&gt; pokemonList.
+     */
     private final List&lt;Pokemon&gt; pokemonList;
     private final IPokemonFactory iPokemonFactory;
     private final IPokemonMetadataProvider iPokemonMetadataProvider;
 
+    /**
+     *
+     * @param pokemonMetadataProvider
+     * @param pokemonFactory
+     */
+<span class="fc" id="L51">    Pokedex(IPokemonMetadataProvider pokemonMetadataProvider, IPokemonFactory pokemonFactory) {</span>
+<span class="fc" id="L52">        pokemonList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L53">        this.iPokemonFactory = pokemonFactory;</span>
+<span class="fc" id="L54">        this.iPokemonMetadataProvider = pokemonMetadataProvider;</span>
+<span class="fc" id="L55">    }</span>
 
-
-<span class="fc" id="L39">    Pokedex(IPokemonMetadataProvider pokemonMetadataProvider, IPokemonFactory pokemonFactory) {</span>
-<span class="fc" id="L40">        pokemonList = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L41">        this.iPokemonFactory = pokemonFactory;</span>
-<span class="fc" id="L42">        this.iPokemonMetadataProvider = pokemonMetadataProvider;</span>
-<span class="fc" id="L43">    }</span>
-
+    /**
+     * Returns the size of the internal pokemonList.
+     * @return int
+     */
     @Override
     public int size() {
-<span class="fc" id="L47">        return pokemonList.size();</span>
+<span class="fc" id="L63">        return pokemonList.size();</span>
     }
 
     /**
@@ -56,48 +72,78 @@ public class Pokedex implements IPokedex {
      */
     @Override
     public int addPokemon(Pokemon pokemon) {
-<span class="fc bfc" id="L59" title="All 2 branches covered.">        if (pokemon == null) {</span>
-<span class="fc" id="L60">            throw new IllegalArgumentException(&quot;Pokemon cannot be null&quot;);</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        if (pokemon == null) {</span>
+<span class="fc" id="L76">            throw new IllegalArgumentException(&quot;Pokemon cannot be null&quot;);</span>
         }
-<span class="pc bpc" id="L62" title="1 of 2 branches missed.">        if (pokemonList == null) {</span>
-<span class="nc" id="L63">            throw new IllegalStateException(&quot;Pokemon list is not initialized&quot;);</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">        if (pokemonList == null) {</span>
+<span class="nc" id="L79">            throw new IllegalStateException(&quot;Pokemon list is not initialized&quot;);</span>
         }
-<span class="fc" id="L65">        pokemonList.add(pokemon);</span>
-<span class="fc" id="L66">        return pokemonList.size() - 1;</span>
+<span class="fc" id="L81">        pokemonList.add(pokemon);</span>
+<span class="fc" id="L82">        return pokemonList.size() - 1;</span>
     }
 
+    /**
+     * .
+     * @param id Unique pokedex relative identifier.
+     * @return
+     * @throws PokedexException
+     */
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
         try {
-<span class="fc" id="L72">            return pokemonList.get(id);</span>
-<span class="fc" id="L73">        } catch (IndexOutOfBoundsException iob) {</span>
-<span class="fc" id="L74">            throw new PokedexException(&quot;Invalid Pokemon id&quot;);</span>
+<span class="fc" id="L94">            return pokemonList.get(id);</span>
+<span class="fc" id="L95">        } catch (IndexOutOfBoundsException iob) {</span>
+<span class="fc" id="L96">            throw new PokedexException(&quot;Invalid Pokemon id&quot;);</span>
         }
     }
 
+    /**
+     * .
+     * @return List&lt;Pokemon&gt;
+     */
     @Override
     public List&lt;Pokemon&gt; getPokemons() {
-<span class="fc" id="L80">        return this.pokemonList;</span>
+<span class="fc" id="L106">        return this.pokemonList;</span>
     }
 
+    /**
+     * .
+     * @param order Comparator instance used for sorting the created view.
+     * @return List&lt;Pokemon&gt;
+     */
     @Override
     public List&lt;Pokemon&gt; getPokemons(Comparator&lt;Pokemon&gt; order) {
-<span class="fc bfc" id="L85" title="All 2 branches covered.">        if (order == null) {</span>
-<span class="fc" id="L86">            throw new IllegalArgumentException(&quot;Comparator cannot be null&quot;);</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        if (order == null) {</span>
+<span class="fc" id="L117">            throw new IllegalArgumentException(&quot;Comparator cannot be null&quot;);</span>
         }
-<span class="fc" id="L88">        List&lt;Pokemon&gt; sortedPokemons = new ArrayList&lt;&gt;(pokemonList); // Create a copy</span>
-<span class="fc" id="L89">        sortedPokemons.sort(order); // Sort using the provided comparator</span>
-<span class="fc" id="L90">        return sortedPokemons; // Return the sorted copy</span>
+<span class="fc" id="L119">        List&lt;Pokemon&gt; sortedPokemons = new ArrayList&lt;&gt;(pokemonList); // Create a copy</span>
+<span class="fc" id="L120">        sortedPokemons.sort(order); // Sort using the provided comparator</span>
+<span class="fc" id="L121">        return sortedPokemons; // Return the sorted copy</span>
     }
 
+    /**
+     * .
+     * @param index Index of the pokemon to retrieve metadata for.
+     * @return
+     * @throws PokedexException
+     */
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-<span class="fc" id="L95">        return iPokemonMetadataProvider.getPokemonMetadata(index);</span>
+<span class="fc" id="L132">        return iPokemonMetadataProvider.getPokemonMetadata(index);</span>
     }
 
+    /**
+     * .
+     * @param index Pokemon index.
+     * @param cp    Pokemon CP.
+     * @param hp    Pokemon HP.
+     * @param dust  Required dust for upgrading pokemon.
+     * @param candy Required candy for upgrading pokemon.
+     * @return
+     */
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-<span class="fc" id="L100">        return iPokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
+<span class="fc" id="L146">        return iPokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

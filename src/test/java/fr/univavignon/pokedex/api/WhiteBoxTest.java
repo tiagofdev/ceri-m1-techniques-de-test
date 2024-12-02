@@ -223,7 +223,7 @@ public class WhiteBoxTest {
 
     }
 
-
+    // Test Pokedex
     @Test
     public void testPokedexBaseValues() throws PokedexException {
         assertNotNull(Pokedex.BASE_VALUES);
@@ -231,18 +231,21 @@ public class WhiteBoxTest {
         assertEquals(pokedex.getPokemonMetadata(24).getName(), Pokedex.BASE_VALUES.get(24 - 1).getName());
     }
 
+    // Test Pokedex
     @Test(expected = PokedexException.class)
     public void testPokedexGetPokemonOutOfBounds() throws PokedexException {
         pokedex.getPokemon(-20);
     }
 
+    // Test Pokedex
     @Test(expected = IllegalArgumentException.class)
     public void testAddPokemon_NullPokemon() {
         pokedex.addPokemon(null);
     }
 
+    // Test Pokedex
     @Test
-    public void testgetPokemonsComparateEmptyList() {
+    public void testGetPokemonsComparateEmptyList() {
         PokedexFactory pokedexFactory = new PokedexFactory();
         IPokedex newPokedex = pokedexFactory.createPokedex(pokedex, pokedex);
         assertEquals(0, newPokedex.size());
@@ -250,6 +253,7 @@ public class WhiteBoxTest {
         List<Pokemon> emptyList = newPokedex.getPokemons(attackComparator);
     }
 
+    // Test Pokedex
     @Test(expected = IllegalArgumentException.class)
     public void testAddPokemonsNullComparator() {
         List<Pokemon> newList = pokedex.getPokemons(null);
@@ -273,21 +277,25 @@ public class WhiteBoxTest {
 
     }
 
+    // Testing IPokemonTrainerFactory
     @Test(expected = IllegalArgumentException.class)
     public void testCreateTrainer_EmptyName() {
         PokemonTrainer trainer = trainerFactory.createTrainer("", Team.MYSTIC, pokedexFactory);
     }
 
+    // Testing IPokemonTrainerFactory
     @Test(expected = IllegalArgumentException.class)
     public void testCreateTrainer_NullName() {
         PokemonTrainer trainer = trainerFactory.createTrainer(null, Team.MYSTIC, pokedexFactory);
     }
 
+    // Testing IPokemonTrainerFactory
     @Test(expected = IllegalArgumentException.class)
     public void testCreateTrainer_NullTeam() {
         PokemonTrainer trainer = trainerFactory.createTrainer("Ash", null, pokedexFactory);
     }
 
+    // Testing IPokemonTrainerFactory
     @Test(expected = IllegalArgumentException.class)
     public void testCreateTrainer_NullPokedexFactory() {
         PokemonTrainer trainer = trainerFactory.createTrainer("Ash", Team.MYSTIC, null);

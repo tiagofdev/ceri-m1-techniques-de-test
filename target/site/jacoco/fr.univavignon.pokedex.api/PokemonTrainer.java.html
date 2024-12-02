@@ -2,48 +2,60 @@
 
 /**
  * Trainer POJO.
- * 
+ *
  * @author fv
  */
 public class PokemonTrainer {
 
-	/** Trainer name. **/
-	private final String name;
+    /**
+     * Trainer name.
+     **/
+    private final String name;
 
-	/** Trainer team. **/
-	private final Team team;
-	
-	/** Trainer pokedex. **/
-	private final IPokedex pokedex;
-	
-	/**
-	 * Default constructor.
-	 * 
-	 * @param name Trainer name.
-	 * @param team Trainer team.
-	 * @param pokedex Trainer pokedex.
-	 */
-<span class="fc" id="L26">	public PokemonTrainer(final String name, final Team team, final IPokedex pokedex) {</span>
-<span class="fc" id="L27">		this.name = name;</span>
-<span class="fc" id="L28">		this.team = team;</span>
-<span class="fc" id="L29">		this.pokedex = pokedex;</span>
-<span class="fc" id="L30">	}</span>
-	
-	/** Name getter. **/
-	public String getName() {
-<span class="fc" id="L34">		return name;</span>
-	}
+    /**
+     * Trainer team.
+     **/
+    private final Team team;
 
-	/** Team getter. **/
-	public Team getTeam() {
-<span class="fc" id="L39">		return team;</span>
-	}
-	
-	/** Pokedex getter. **/
-	public IPokedex getPokedex() {
-<span class="nc" id="L44">		return pokedex;</span>
-	}
-	
+    /**
+     * Trainer pokedex.
+     **/
+    private final IPokedex pokedex;
+
+    /**
+     * Default constructor.
+     *
+     * @param name    Trainer name.
+     * @param team    Trainer team.
+     * @param pokedex Trainer pokedex.
+     */
+<span class="fc" id="L32">    public PokemonTrainer(final String name, final Team team, final IPokedex pokedex) {</span>
+<span class="fc" id="L33">        this.name = name;</span>
+<span class="fc" id="L34">        this.team = team;</span>
+<span class="fc" id="L35">        this.pokedex = pokedex;</span>
+<span class="fc" id="L36">    }</span>
+
+    /**
+     * Name getter.
+     **/
+    public String getName() {
+<span class="fc" id="L42">        return name;</span>
+    }
+
+    /**
+     * Team getter.
+     **/
+    public Team getTeam() {
+<span class="fc" id="L49">        return team;</span>
+    }
+
+    /**
+     * Pokedex getter.
+     **/
+    public IPokedex getPokedex() {
+<span class="nc" id="L56">        return pokedex;</span>
+    }
+
 }
 
 
