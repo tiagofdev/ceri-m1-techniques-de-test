@@ -29,32 +29,31 @@ public class TrainerFactory implements IPokemonTrainerFactory {
 
     /**
      * .
-     * @param name           Name of the created trainer.
-     * @param team           Team of the created trainer.
+     * @param pname           Name of the created trainer.
+     * @param pteam           Team of the created trainer.
      * @param pokedexFactory Factory to use for creating associated pokedex instance.
      * @return
      */
     @Override
-    public PokemonTrainer createTrainer(final String name, final Team team, final IPokedexFactory pokedexFactory) {
-<span class="fc bfc" id="L39" title="All 4 branches covered.">        if (name == null || name.trim().isEmpty()) {</span>
+    public PokemonTrainer createTrainer(final String pname, final Team pteam, final IPokedexFactory pokedexFactory) {
+<span class="fc bfc" id="L39" title="All 4 branches covered.">        if (pname == null || pname.trim().isEmpty()) {</span>
 <span class="fc" id="L40">            throw new IllegalArgumentException(&quot;Trainer name cannot be null or empty&quot;);</span>
         }
-<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (team == null) {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (pteam == null) {</span>
 <span class="fc" id="L43">            throw new IllegalArgumentException(&quot;Team cannot be null&quot;);</span>
         }
 <span class="fc bfc" id="L45" title="All 2 branches covered.">        if (pokedexFactory == null) {</span>
 <span class="fc" id="L46">            throw new IllegalArgumentException(&quot;PokedexFactory cannot be null&quot;);</span>
         }
 
-
         // Create Pokedex using the factory
-<span class="fc" id="L51">        Pokedex pokedex = (Pokedex) pokedexFactory.createPokedex(metadataProvider, pokemonFactory);</span>
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (pokedex == null) {</span>
-<span class="nc" id="L53">            throw new IllegalStateException(&quot;Failed to create Pokedex from the factory&quot;);</span>
+<span class="fc" id="L50">        Pokedex pokedex = (Pokedex) pokedexFactory.createPokedex(metadataProvider, pokemonFactory);</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">        if (pokedex == null) {</span>
+<span class="nc" id="L52">            throw new IllegalStateException(&quot;Failed to create Pokedex from the factory&quot;);</span>
         }
 
         // Return the PokemonTrainer object with valid parameters
-<span class="fc" id="L57">        return new PokemonTrainer(name, team, pokedex);</span>
+<span class="fc" id="L56">        return new PokemonTrainer(pname, pteam, pokedex);</span>
     }
 }
 

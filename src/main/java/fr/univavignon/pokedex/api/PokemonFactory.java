@@ -14,14 +14,14 @@ public class PokemonFactory implements IPokemonFactory {
      * .
      * @return IV_TOTAL
      */
-    public double getIV_TOTAL() {
-        return IV_TOTAL;
+    public double getIvTotal() {
+        return ivTotal;
     }
 
     /**
      * IV_TOTAL default 45.
      */
-    private final double IV_TOTAL = 45.0;
+    private final double ivTotal = 45.0;
 
     /**
      * .
@@ -37,7 +37,7 @@ public class PokemonFactory implements IPokemonFactory {
         PokemonMetadata metadata;
         try {
             metadata = Pokedex.BASE_VALUES.get(index - 1);
-            double iv = (metadata.getAttack() + metadata.getDefense() + metadata.getStamina()) / IV_TOTAL;
+            double iv = (metadata.getAttack() + metadata.getDefense() + metadata.getStamina()) / ivTotal;
             return new Pokemon(metadata.getIndex(), metadata.getName(), metadata.getAttack(), metadata.getDefense(),
                     metadata.getStamina(), cp, hp, dust, candy, iv);
         } catch (IndexOutOfBoundsException iob) {

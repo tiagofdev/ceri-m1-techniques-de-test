@@ -35,18 +35,22 @@ public class PokemonMetadata {
     /**
      * Default constructor.
      *
-     * @param index   Pokemon index.
-     * @param name    Pokemon name.
-     * @param attack  Attack level.
-     * @param defense Defense level.
-     * @param stamina Stamina level.
+     * @param pindex   Pokemon index.
+     * @param pname    Pokemon name.
+     * @param pattack  Attack level.
+     * @param pdefense Defense level.
+     * @param pstamina Stamina level.
      */
-    public PokemonMetadata(final int index, final String name, final int attack, final int defense, final int stamina) {
-        this.index = index;
-        this.name = name;
-        this.attack = attack;
-        this.defense = defense;
-        this.stamina = stamina;
+    public PokemonMetadata(final int pindex,
+                           final String pname,
+                           final int pattack,
+                           final int pdefense,
+                           final int pstamina) {
+        this.index = pindex;
+        this.name = pname;
+        this.attack = pattack;
+        this.defense = pdefense;
+        this.stamina = pstamina;
     }
 
     /**

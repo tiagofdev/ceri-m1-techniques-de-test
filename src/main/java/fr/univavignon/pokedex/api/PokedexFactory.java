@@ -29,7 +29,8 @@ public class PokedexFactory implements IPokedexFactory {
      * @return IPokedex
      */
     @Override
-    public IPokedex createPokedex(final IPokemonMetadataProvider metadataProvider, final IPokemonFactory pokemonFactory) {
+    public IPokedex createPokedex(final IPokemonMetadataProvider metadataProvider,
+                                  final IPokemonFactory pokemonFactory) {
         if (metadataProvider == null || pokemonFactory == null) {
             throw new IllegalArgumentException("Metadata provider and Pokemon factory cannot be null");
         }

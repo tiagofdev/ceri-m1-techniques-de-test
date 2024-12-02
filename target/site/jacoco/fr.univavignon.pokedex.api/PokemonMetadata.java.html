@@ -35,26 +35,30 @@ public class PokemonMetadata {
     /**
      * Default constructor.
      *
-     * @param index   Pokemon index.
-     * @param name    Pokemon name.
-     * @param attack  Attack level.
-     * @param defense Defense level.
-     * @param stamina Stamina level.
+     * @param pindex   Pokemon index.
+     * @param pname    Pokemon name.
+     * @param pattack  Attack level.
+     * @param pdefense Defense level.
+     * @param pstamina Stamina level.
      */
-<span class="fc" id="L44">    public PokemonMetadata(final int index, final String name, final int attack, final int defense, final int stamina) {</span>
-<span class="fc" id="L45">        this.index = index;</span>
-<span class="fc" id="L46">        this.name = name;</span>
-<span class="fc" id="L47">        this.attack = attack;</span>
-<span class="fc" id="L48">        this.defense = defense;</span>
-<span class="fc" id="L49">        this.stamina = stamina;</span>
-<span class="fc" id="L50">    }</span>
+    public PokemonMetadata(final int pindex,
+                           final String pname,
+                           final int pattack,
+                           final int pdefense,
+<span class="fc" id="L48">                           final int pstamina) {</span>
+<span class="fc" id="L49">        this.index = pindex;</span>
+<span class="fc" id="L50">        this.name = pname;</span>
+<span class="fc" id="L51">        this.attack = pattack;</span>
+<span class="fc" id="L52">        this.defense = pdefense;</span>
+<span class="fc" id="L53">        this.stamina = pstamina;</span>
+<span class="fc" id="L54">    }</span>
 
     /**
      * Index getter.
      * @return index
      **/
     public int getIndex() {
-<span class="fc" id="L57">        return index;</span>
+<span class="fc" id="L61">        return index;</span>
     }
 
     /**
@@ -62,7 +66,7 @@ public class PokemonMetadata {
      * @return name
      **/
     public String getName() {
-<span class="fc" id="L65">        return name;</span>
+<span class="fc" id="L69">        return name;</span>
     }
 
     /**
@@ -70,7 +74,7 @@ public class PokemonMetadata {
      * @return attack
      **/
     public int getAttack() {
-<span class="fc" id="L73">        return attack;</span>
+<span class="fc" id="L77">        return attack;</span>
     }
 
     /**
@@ -78,7 +82,7 @@ public class PokemonMetadata {
      * @return defense
      **/
     public int getDefense() {
-<span class="fc" id="L81">        return defense;</span>
+<span class="fc" id="L85">        return defense;</span>
     }
 
     /**
@@ -86,7 +90,7 @@ public class PokemonMetadata {
      * @return stamina
      **/
     public int getStamina() {
-<span class="fc" id="L89">        return stamina;</span>
+<span class="fc" id="L93">        return stamina;</span>
     }
 
 }

@@ -14,14 +14,14 @@
      * .
      * @return IV_TOTAL
      */
-    public double getIV_TOTAL() {
-<span class="nc" id="L18">        return IV_TOTAL;</span>
+    public double getIvTotal() {
+<span class="nc" id="L18">        return ivTotal;</span>
     }
 
     /**
      * IV_TOTAL default 45.
      */
-<span class="fc" id="L24">    private final double IV_TOTAL = 45.0;</span>
+<span class="fc" id="L24">    private final double ivTotal = 45.0;</span>
 
     /**
      * .
@@ -37,7 +37,7 @@
         PokemonMetadata metadata;
         try {
 <span class="fc" id="L39">            metadata = Pokedex.BASE_VALUES.get(index - 1);</span>
-<span class="fc" id="L40">            double iv = (metadata.getAttack() + metadata.getDefense() + metadata.getStamina()) / IV_TOTAL;</span>
+<span class="fc" id="L40">            double iv = (metadata.getAttack() + metadata.getDefense() + metadata.getStamina()) / ivTotal;</span>
 <span class="fc" id="L41">            return new Pokemon(metadata.getIndex(), metadata.getName(), metadata.getAttack(), metadata.getDefense(),</span>
 <span class="fc" id="L42">                    metadata.getStamina(), cp, hp, dust, candy, iv);</span>
 <span class="fc" id="L43">        } catch (IndexOutOfBoundsException iob) {</span>

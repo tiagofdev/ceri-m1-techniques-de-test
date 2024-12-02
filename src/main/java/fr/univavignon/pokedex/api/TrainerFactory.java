@@ -29,23 +29,22 @@ public class TrainerFactory implements IPokemonTrainerFactory {
 
     /**
      * .
-     * @param name           Name of the created trainer.
-     * @param team           Team of the created trainer.
+     * @param pname           Name of the created trainer.
+     * @param pteam           Team of the created trainer.
      * @param pokedexFactory Factory to use for creating associated pokedex instance.
      * @return
      */
     @Override
-    public PokemonTrainer createTrainer(final String name, final Team team, final IPokedexFactory pokedexFactory) {
-        if (name == null || name.trim().isEmpty()) {
+    public PokemonTrainer createTrainer(final String pname, final Team pteam, final IPokedexFactory pokedexFactory) {
+        if (pname == null || pname.trim().isEmpty()) {
             throw new IllegalArgumentException("Trainer name cannot be null or empty");
         }
-        if (team == null) {
+        if (pteam == null) {
             throw new IllegalArgumentException("Team cannot be null");
         }
         if (pokedexFactory == null) {
             throw new IllegalArgumentException("PokedexFactory cannot be null");
         }
-
 
         // Create Pokedex using the factory
         Pokedex pokedex = (Pokedex) pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
@@ -54,7 +53,7 @@ public class TrainerFactory implements IPokemonTrainerFactory {
         }
 
         // Return the PokemonTrainer object with valid parameters
-        return new PokemonTrainer(name, team, pokedex);
+        return new PokemonTrainer(pname, pteam, pokedex);
     }
 }
 

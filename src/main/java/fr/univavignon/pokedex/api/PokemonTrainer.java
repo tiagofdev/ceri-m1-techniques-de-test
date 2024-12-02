@@ -25,14 +25,14 @@ public class PokemonTrainer {
     /**
      * Default constructor.
      *
-     * @param name    Trainer name.
-     * @param team    Trainer team.
-     * @param pokedex Trainer pokedex.
+     * @param pname    Trainer name.
+     * @param pteam    Trainer team.
+     * @param ppokedex Trainer pokedex.
      */
-    public PokemonTrainer(final String name, final Team team, final IPokedex pokedex) {
-        this.name = name;
-        this.team = team;
-        this.pokedex = pokedex;
+    public PokemonTrainer(final String pname, final Team pteam, final IPokedex ppokedex) {
+        this.name = pname;
+        this.team = pteam;
+        this.pokedex = ppokedex;
     }
 
     /**
@@ -60,6 +60,5 @@ public class PokemonTrainer {
     }
 
 }
-
 
 // PokemonTrainer <- TrainerFactory <- PokedexFactory <- MetadataProvider + PokemonFactory

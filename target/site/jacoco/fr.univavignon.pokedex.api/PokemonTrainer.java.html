@@ -25,14 +25,14 @@ public class PokemonTrainer {
     /**
      * Default constructor.
      *
-     * @param name    Trainer name.
-     * @param team    Trainer team.
-     * @param pokedex Trainer pokedex.
+     * @param pname    Trainer name.
+     * @param pteam    Trainer team.
+     * @param ppokedex Trainer pokedex.
      */
-<span class="fc" id="L32">    public PokemonTrainer(final String name, final Team team, final IPokedex pokedex) {</span>
-<span class="fc" id="L33">        this.name = name;</span>
-<span class="fc" id="L34">        this.team = team;</span>
-<span class="fc" id="L35">        this.pokedex = pokedex;</span>
+<span class="fc" id="L32">    public PokemonTrainer(final String pname, final Team pteam, final IPokedex ppokedex) {</span>
+<span class="fc" id="L33">        this.name = pname;</span>
+<span class="fc" id="L34">        this.team = pteam;</span>
+<span class="fc" id="L35">        this.pokedex = ppokedex;</span>
 <span class="fc" id="L36">    }</span>
 
     /**
@@ -60,7 +60,6 @@ public class PokemonTrainer {
     }
 
 }
-
 
 // PokemonTrainer &lt;- TrainerFactory &lt;- PokedexFactory &lt;- MetadataProvider + PokemonFactory
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

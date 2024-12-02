@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * Pokedex implements IPokedex.
  */
+@SuppressWarnings("checkstyle:MagicNumber")
 public class Pokedex implements IPokedex {
 
     /**
