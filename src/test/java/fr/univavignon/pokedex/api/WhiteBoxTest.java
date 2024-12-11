@@ -1,5 +1,6 @@
 package fr.univavignon.pokedex.api;
 
+import fr.univavignon.pokedex.imp.RocketFactory;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,23 +14,31 @@ public class WhiteBoxTest {
 
     IPokemonMetadataProvider pokemonMetadataProvider;
     IPokemonFactory pokemonFactory;
+    IPokemonFactory rocketFactory;  // RocketPokemonFactory
     PokedexFactory pokedexFactory;
     IPokedex pokedex;
+    IPokedex rockdex;
     IPokemonTrainerFactory trainerFactory;
 
     Pokemon pokemon1;
     Pokemon pokemon2;
+    Pokemon rockmon1;
+    Pokemon rockmon2;
 
     @Before
     public void setUp() {
         pokemonMetadataProvider = new PokemonMetadataProvider();
         pokemonFactory = new PokemonFactory();
-
+        rocketFactory = new RocketFactory();
 
         pokedexFactory = new PokedexFactory();
         pokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory);
         pokemon1 = pokemonFactory.createPokemon(24, 281, 36, 1324, 2);
         pokemon2 = pokemonFactory.createPokemon(25, 207, 52, 5836, 5);
+
+        rockdex = pokedexFactory.createPokedex(pokemonMetadataProvider, rocketFactory);
+        rockmon1 = rocketFactory.createPokemon(24, 281, 36, 1324, 2);
+        rockmon2 = rocketFactory.createPokemon(25, 207, 52, 5836, 5);
 
         trainerFactory = new TrainerFactory();
     }
@@ -299,6 +308,76 @@ public class WhiteBoxTest {
     @Test(expected = IllegalArgumentException.class)
     public void testCreateTrainer_NullPokedexFactory() {
         PokemonTrainer trainer = trainerFactory.createTrainer("Ash", Team.MYSTIC, null);
+    }
+
+    // TP 6 Tests for RocketFactory
+
+    /**
+     * Test de RocketPokemonFactory avec mes tests standards.
+     * Le test a échoué pour les valeurs de base (attaque, endurance, défense) car elles sont censées être comprises entre 0 et 15. La valeur réelle créée par cette implémentation est 49.
+     * Leur implémentation avait une liste de tâches à effectuer inachevée qui devait inclure les 151 valeurs de base des Pokémon. Pour cette raison, nous ne testons que les 3 premières valeurs fournies : -1, 0 et 1.
+     */
+    @Test
+    public void testCreatePokemonWithValidIndex() {
+        // Act
+        Pokemon pokemon = rocketFactory.createPokemon(1, 500, 100, 3000, 3);
+
+        // Assert
+        assertNotNull(pokemon);
+        assertEquals(1, pokemon.getIndex());
+        assertEquals("Bulbasaur", pokemon.getName());
+        assertEquals(500, pokemon.getCp());
+        assertEquals(100, pokemon.getHp());
+        assertEquals(3000, pokemon.getDust());
+        assertEquals(3, pokemon.getCandy());
+        assertEquals(5, pokemon.getAttack());
+        assertEquals(5, pokemon.getStamina());
+        assertEquals(1.0, pokemon.getIv(), 0.0001);
+    }
+
+    /**
+     * 
+     */
+    @Test
+    public void testCreatePokemonWithNegativeIndex() {
+        // Act
+        Pokemon pokemon = rocketFactory.createPokemon(-1, 700, 150, 4000, 5);
+
+        // Assert
+        assertNotNull(pokemon);
+        assertEquals(-1, pokemon.getIndex());
+        assertEquals("Ash's Pikachu", pokemon.getName());
+        assertEquals(0.0, pokemon.getIv(), 0.0001);
+        assertEquals(1000, pokemon.getAttack());
+
+    }
+
+    @Test
+    public void testCreatePokemonWithIndexZero() {
+        // Act
+        Pokemon pokemon = rocketFactory.createPokemon(0, 500, 100, 3000, 3);
+
+        // Assert
+        assertNotNull(pokemon);
+        assertEquals(0, pokemon.getIndex());
+        assertEquals("MISSINGNO", pokemon.getName());
+
+    }
+
+    /**
+     * Lors de l'analyse de la méthode generateRandomStat(), la plage supposée attendue est de 0 à 100, mais le résultat réel obtenu à partir des tests est toujours le même, 49.
+     * On peut même essayer de faire un assert que le résultat sera exactement de 49 et obtenir un test positif.
+     */
+    @Test
+    public void testCreatePokemonForRandomValues() {
+        Pokemon pokemon = rocketFactory.createPokemon(1, 500, 100, 3000, 3);
+
+        // Assert
+        assertNotNull(pokemon);
+        assertEquals(49, pokemon.getAttack());
+        assertTrue(pokemon.getAttack() >= 0 && pokemon.getAttack() <= 100);
+
+
     }
 
 }

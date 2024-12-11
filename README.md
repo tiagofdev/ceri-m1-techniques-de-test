@@ -73,6 +73,10 @@ test incluent:
 - **Docker**: Le pipeline s'exécute dans des environnements Docker, permettant des builds cohérents et isolés. Le projet
   utilise l'image `cimg/openjdk:21.0` pour l'environnement de build Java.
 
+### TP 6 Critique de RocketPokemonFactory
+
+
+
 ---
 
 
