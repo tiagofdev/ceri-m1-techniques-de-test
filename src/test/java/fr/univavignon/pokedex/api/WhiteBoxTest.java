@@ -17,21 +17,29 @@ public class WhiteBoxTest {
 
     PokedexFactory pokedexFactory;
     IPokedex pokedex;
+    IPokedex rocketdex;
     IPokemonTrainerFactory trainerFactory;
 
     Pokemon pokemon1;
     Pokemon pokemon2;
+    Pokemon rocketmon1;
+    Pokemon rocketmon2;
 
     @Before
     public void setUp() {
         pokemonMetadataProvider = new PokemonMetadataProvider();
         pokemonFactory = new PokemonFactory();
-        rocketFactory = new PokemonFactory();
+        rocketFactory = new RocketPokemonFactory();
 
         pokedexFactory = new PokedexFactory();
-        pokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, rocketFactory);
-        pokemon1 = rocketFactory.createPokemon(24, 281, 36, 1324, 2);
-        pokemon2 = rocketFactory.createPokemon(25, 207, 52, 5836, 5);
+
+        pokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory);
+        pokemon1 = pokemonFactory.createPokemon(24, 281, 36, 1324, 2);
+        pokemon2 = pokemonFactory.createPokemon(25, 207, 52, 5836, 5);
+
+        rocketdex = pokedexFactory.createPokedex(pokemonMetadataProvider, rocketFactory);
+        rocketmon1 = rocketFactory.createPokemon(24, 281, 36, 1324, 2);
+        rocketmon2 = rocketFactory.createPokemon(25, 207, 52, 5836, 5);
 
         trainerFactory = new TrainerFactory();
     }
@@ -302,5 +310,95 @@ public class WhiteBoxTest {
     public void testCreateTrainer_NullPokedexFactory() {
         PokemonTrainer trainer = trainerFactory.createTrainer("Ash", Team.MYSTIC, null);
     }
+
+    // TP6 Testing RocketFactory implementation with my tests
+
+    /**
+     * Testing RocketFactory
+     * rokedex implements IPokedex which extends IPokemonFactory
+     * Testing valid index
+     * L'implémentation de Team Rocket a une TO DO list incomplète. Ils ne répertorient pas les 151 Pokémon, mais
+     * un seul est présent. Ils ont 2 valeurs par défaut. Pour cette raison, nous testons uniquement les index 0, 1 et -1.
+     */
+    @Test
+    public void testingRocketFactoryValidIndex() {
+        Pokemon result = rocketdex.createPokemon(1, 281, 36, 1324, 2);
+        assertNotNull(result);
+        assertEquals(1, result.getIndex());
+        assertEquals(281, result.getCp());
+        assertEquals(36, result.getHp());
+        assertEquals(1324, result.getDust());
+        assertEquals(2, result.getCandy());
+        assertEquals("Bulbasaur", result.getName());
+        assertEquals(1.0, result.getIv(), 0.0001);
+    }
+
+    /**
+     * Les valeurs de base pour l'attaque, la défense et l'endurance sont censées être
+     * comprises entre 0 et 15. L'implémentation de Team Rocket génère des valeurs qui sont censées être aléatoires et
+     * comprises entre 0 et 100. Cependant, leur algorithme échoue et renvoie toujours le même résultat, soit 49 ou 50,
+     * à chaque fois.
+     */
+    @Test
+    public void testingRocketFactoryBaseValues() {
+        Pokemon result = rocketdex.createPokemon(1, 281, 36, 1324, 2);
+        assertTrue(result.getAttack() == 49 || result.getAttack() == 50);
+        assertTrue(result.getDefense() == 49 || result.getDefense() == 50);
+        assertTrue(result.getStamina() == 49 || result.getStamina() == 50);
+    }
+
+    @Test
+    public void testingRocketFactoryValueZero() {
+        Pokemon result = rocketdex.createPokemon(0, 281, 36, 1324, 2);
+        assertNotNull(result);
+        assertEquals(0, result.getIndex());
+        assertEquals(281, result.getCp());
+        assertEquals(36, result.getHp());
+        assertEquals(1324, result.getDust());
+        assertEquals(2, result.getCandy());
+        assertEquals("MISSINGNO", result.getName());
+    }
+
+    /**
+     * Testing Negative Zero index
+     * Cet index spécial obtient différentes statistiques de valeur de base pour l'attaque, la défense et l'endurance
+     */
+    @Test
+    public void testingRocketFactoryNegativeOne() {
+        Pokemon result = rocketdex.createPokemon(-1, 281, 36, 1324, 2);
+        assertNotNull(result);
+        assertEquals(-1, result.getIndex());
+        assertEquals(281, result.getCp());
+        assertEquals(36, result.getHp());
+        assertEquals(1324, result.getDust());
+        assertEquals(2, result.getCandy());
+        assertEquals("Ash's Pikachu", result.getName());
+        assertEquals(1000, result.getAttack());
+        assertEquals(1000, result.getDefense());
+        assertEquals(1000, result.getStamina());
+        assertEquals(0, result.getIv(), 0.0001);
+    }
+
+    /**
+     * Testing Invalid Index
+     * Selon mes tests, cela échouerait car je m'attendais à une valeur nulle pour un index non valide. La Team Rocket,
+     * cependant, permet la création de Pokémon avec des index non valides et "génère" des valeurs de base.
+     * ils définissent un nom par défaut
+     */
+    @Test
+    public void testingRocketFactoryInvalidIndex() {
+        Pokemon result = rocketdex.createPokemon(200, 281, 36, 1324, 2);
+        assertNotNull(result);
+        assertEquals(200, result.getIndex());
+        assertEquals(281, result.getCp());
+        assertEquals(36, result.getHp());
+        assertEquals(1324, result.getDust());
+        assertEquals(2, result.getCandy());
+        assertEquals("MISSINGNO", result.getName());
+    }
+
+    // Tests supplémentaires pour couvrir leur implémentation
+
+
 
 }
