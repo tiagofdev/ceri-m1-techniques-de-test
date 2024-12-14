@@ -7,5 +7,21 @@
 <file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\Pokemon.java">
 <error line="49" column="12" severity="error" message="More than 7 parameters (found 10)." source="com.puppycrawl.tools.checkstyle.checks.sizes.ParameterNumberCheck"/>
 </file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\RocketPokemonFactory.java">
+<error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
+<error line="9" column="1" severity="error" message="Redundant import from the same package - fr.univavignon.pokedex.api.IPokemonFactory." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+<error line="10" column="1" severity="error" message="Redundant import from the same package - fr.univavignon.pokedex.api.Pokemon." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+<error line="14" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="27" column="29" severity="error" message="&apos;1000000&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="32" column="24" severity="error" message="&apos;10000&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="35" column="5" severity="error" message="Class &apos;RocketPokemonFactory&apos; looks like designed for extension (can be subclassed), but the method &apos;createPokemon&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;RocketPokemonFactory&apos; final or making the method &apos;createPokemon&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="36" column="34" severity="error" message="Parameter index should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="36" column="45" severity="error" message="Parameter cp should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="36" column="53" severity="error" message="Parameter hp should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="36" column="61" severity="error" message="Parameter dust should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="36" column="71" severity="error" message="Parameter candy should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="48" column="22" severity="error" message="&apos;1000&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="49" column="23" severity="error" message="&apos;1000&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="50" column="23" severity="error" message="&apos;1000&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+</file>
 </checkstyle>
-

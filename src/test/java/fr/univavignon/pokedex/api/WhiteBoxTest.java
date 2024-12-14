@@ -61,6 +61,7 @@ public class WhiteBoxTest {
         assertEquals(36, result.getHp());
         assertEquals(1324, result.getDust());
         assertEquals(2, result.getCandy());
+
     }
 
     // Testing boundary index and testing custom values other than base values
@@ -77,6 +78,7 @@ public class WhiteBoxTest {
         assertEquals(64, result.getHp());
         assertEquals(4000, result.getDust());
         assertEquals(4, result.getCandy());
+        assertEquals((5+5+2)/45.0, result.getIv(), 0.0001);
 
         Pokemon result2 = pokedex.createPokemon(151, 666, 50, 5000, 4);
         assertNotNull(result);
@@ -99,6 +101,12 @@ public class WhiteBoxTest {
         Pokemon result = pokedex.createPokemon(200, 2171, 105, 8000, 15);
 //        assertNull("Expected null for out of bounds index!", result);
         assertNull(result);
+    }
+
+    @Test
+    public void testingPokemonFactory() {
+        PokemonFactory factory = new PokemonFactory();
+        assertEquals(45.0, factory.getIvTotal(), 0.001);
     }
 
     // Testing IPokemonMetadataProvider
@@ -311,6 +319,84 @@ public class WhiteBoxTest {
         PokemonTrainer trainer = trainerFactory.createTrainer("Ash", Team.MYSTIC, null);
     }
 
+    @Test
+    public void testNameComparator() {
+        // Arrange
+        Pokemon pikachu = new Pokemon(25, "Pikachu", 55, 40, 35, 100, 50, 4000, 100, 0.9);
+        Pokemon bulbasaur = new Pokemon(1, "Bulbasaur", 49, 49, 45, 120, 60, 3000, 50, 0.8);
+
+        // Act
+        int result = PokemonComparators.NAME.compare(pikachu, bulbasaur);
+
+        // Assert
+        assertTrue(result > 0 );
+    }
+
+    @Test
+    public void testIndexComparator() {
+        // Arrange
+        Pokemon pikachu = new Pokemon(25, "Pikachu", 55, 40, 35, 100, 50, 4000, 100, 0.9);
+        Pokemon bulbasaur = new Pokemon(1, "Bulbasaur", 49, 49, 45, 120, 60, 3000, 50, 0.8);
+
+        // Act
+        int result = PokemonComparators.INDEX.compare(pikachu, bulbasaur);
+
+        // Assert
+        assertTrue(result > 0);
+    }
+
+    @Test
+    public void testCpComparator() {
+        // Arrange
+        Pokemon pikachu = new Pokemon(25, "Pikachu", 55, 40, 35, 100, 50, 4000, 100, 0.9);
+        Pokemon bulbasaur = new Pokemon(1, "Bulbasaur", 49, 49, 45, 120, 60, 3000, 50, 0.8);
+
+        // Act
+        int result = PokemonComparators.CP.compare(pikachu, bulbasaur);
+
+        // Assert
+        assertTrue(result < 0);
+    }
+
+    @Test
+    public void testEqualPokemonNameComparator() {
+        // Arrange
+        Pokemon pikachu1 = new Pokemon(25, "Pikachu", 55, 40, 35, 100, 50, 4000, 100, 0.9);
+        Pokemon pikachu2 = new Pokemon(25, "Pikachu", 55, 40, 35, 100, 50, 4000, 100, 0.9);
+
+        // Act
+        int result = PokemonComparators.NAME.compare(pikachu1, pikachu2);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testEqualPokemonIndexComparator() {
+        // Arrange
+        Pokemon bulbasaur1 = new Pokemon(1, "Bulbasaur", 49, 49, 45, 120, 60, 3000, 50, 0.8);
+        Pokemon bulbasaur2 = new Pokemon(1, "Bulbasaur", 49, 49, 45, 120, 60, 3000, 50, 0.8);
+
+        // Act
+        int result = PokemonComparators.INDEX.compare(bulbasaur1, bulbasaur2);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testEqualPokemonCpComparator() {
+        // Arrange
+        Pokemon bulbasaur1 = new Pokemon(1, "Bulbasaur", 49, 49, 45, 120, 60, 3000, 50, 0.8);
+        Pokemon bulbasaur2 = new Pokemon(1, "Bulbasaur", 49, 49, 45, 120, 60, 3000, 50, 0.8);
+
+        // Act
+        int result = PokemonComparators.CP.compare(bulbasaur1, bulbasaur2);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
     // TP6 Testing RocketFactory implementation with my tests
 
     /**
@@ -397,8 +483,9 @@ public class WhiteBoxTest {
         assertEquals("MISSINGNO", result.getName());
     }
 
+    // Une analyse des tests initiaux indique des lignes non couvertes dans l'implémentation de Team Rocket
     // Tests supplémentaires pour couvrir leur implémentation
-
+    // Leur implémentation comporte également 15 violations de checkstyle
 
 
 }

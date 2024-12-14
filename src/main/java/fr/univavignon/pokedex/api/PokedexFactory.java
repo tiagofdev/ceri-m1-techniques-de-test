@@ -1,26 +1,6 @@
 package fr.univavignon.pokedex.api;
 
 public class PokedexFactory implements IPokedexFactory {
-    /**
-     * .
-     * @return IPokedex
-     */
-    public IPokedex getiPokedex() {
-        return iPokedex;
-    }
-
-    /**
-     * .
-     * @param pokedex
-     */
-    public void setiPokedex(final IPokedex pokedex) {
-        this.iPokedex = pokedex;
-    }
-
-    /**
-     * iPokedex.
-     */
-    private IPokedex iPokedex;
 
     /**
      * createPokedex().
