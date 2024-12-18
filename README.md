@@ -75,6 +75,34 @@ test incluent:
 
 ---
 
+## TP6 - Rapport des tests sur Team Rocket implementation de RocketPokemonFactory
+
+### Testing RocketFactory
+
+* Tesing valid index 1
+
+    L'implémentation de Team Rocket a une TO DO list incomplète. Ils ne répertorient pas les 151 Pokémon, mais
+un seul est présent. Ils ont 2 valeurs par défaut. Pour cette raison, nous testons uniquement les index 0, 1 et -1.
+
+* Testing les valeurs génerés aléatoirement
+
+    Les valeurs de base pour l'attaque, la défense et l'endurance sont censées être
+ comprises entre 0 et 15. L'implémentation de Team Rocket génère des valeurs qui sont censées être aléatoires et
+ comprises entre 0 et 100. Cependant, leur algorithme échoue et renvoie toujours le même résultat, soit 49 ou 50,
+ à chaque fois.
+
+* Testing Negative Zero index :
+    
+    Cet index spécial obtient différentes statistiques de valeur de base pour l'attaque, la défense et l'endurance
+
+* Testing Invalid Index
+
+    Selon mes tests, cela échouerait car je m'attendais à une valeur nulle pour un index non valide. La Team Rocket, 
+cependant, permet la création de Pokémon avec des index non valides et "génère" des valeurs de base.
+ils définissent un nom par défaut
+
+
+
 
 ************************************************************************************************************************************************************************
 

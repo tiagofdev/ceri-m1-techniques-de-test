@@ -44,10 +44,11 @@ public class WhiteBoxTest {
         trainerFactory = new TrainerFactory();
     }
 
-
-    // Testing IPokemonFactory
-    // custom Pokedex implements IPokedex which extends IPokemonFactory
-    // Testing valid index
+    /**
+     * Testing IPokemonFactory
+     * custom Pokedex implements IPokedex which extends IPokemonFactory
+     * Testing valid index
+     */
     @Test
     public void testingIPokemonFactoryValidIndex() {
         Pokemon result = pokedex.createPokemon(24, 281, 36, 1324, 2);
@@ -64,7 +65,9 @@ public class WhiteBoxTest {
 
     }
 
-    // Testing boundary index and testing custom values other than base values
+    /**
+     * Testing boundary index and testing custom values other than base values.
+     */
     @Test
     public void testingIPokemonFactoryBoundaries() {
         Pokemon result = pokedex.createPokemon(1, 613, 64, 4000, 4);
@@ -93,9 +96,11 @@ public class WhiteBoxTest {
         assertEquals(4, result2.getCandy());
     }
 
-    // Testing IPokemonFactory
-    // custom Pokedex implements IPokedex which extends IPokemonFactory
-    // Testing invalid index
+    /**
+     * Testing IPokemonFactory
+     * custom Pokedex implements IPokedex which extends IPokemonFactory
+     * Testing invalid index
+     */
     @Test
     public void testingIPokemonFactoryInvalidIndex() {
         Pokemon result = pokedex.createPokemon(200, 2171, 105, 8000, 15);
@@ -103,14 +108,20 @@ public class WhiteBoxTest {
         assertNull(result);
     }
 
+    /**
+     *
+     */
     @Test
     public void testingPokemonFactory() {
         PokemonFactory factory = new PokemonFactory();
         assertEquals(45.0, factory.getIvTotal(), 0.001);
     }
 
-    // Testing IPokemonMetadataProvider
-    // custom Pokedex implements IPokedex which extends IPokemonMetadataProvider
+    /**
+     * Testing IPokemonMetadataProvider
+     * custom Pokedex implements IPokedex which extends IPokemonMetadataProvider
+     * @throws PokedexException
+     */
     @Test
     public void testingIPokemonMetadataProvider() throws PokedexException {
         PokemonMetadata metadata;
@@ -122,15 +133,20 @@ public class WhiteBoxTest {
 
     }
 
-    // Testing IPokemonMetadataProvider
-    // custom Pokedex implements IPokedex which extends IPokemonMetadataProvider
-    // Testing Invalid index
+    /**
+     * Testing IPokemonMetadataProvider
+     * custom Pokedex implements IPokedex which extends IPokemonMetadataProvider
+     * Testing Invalid index
+     * @throws PokedexException
+     */
     @Test(expected = PokedexException.class)
     public void testingIPokemonMetadataProviderInvalidIndex() throws PokedexException {
         pokedex.getPokemonMetadata(200);
     }
 
-    // Testing IPokedexFactory
+    /**
+     * Testing IPokedexFactory
+     */
     @Test
     public void testPokedexFactoryInstancing() {
         PokedexFactory pokedexFactory = new PokedexFactory();
@@ -139,7 +155,9 @@ public class WhiteBoxTest {
         assertTrue(newPokedex instanceof Pokedex);
     }
 
-    // Testing IPokedexFactory
+    /**
+     * Testing IPokedexFactory
+     */
     @Test(expected = IllegalArgumentException.class)
     public void testPokedexFactoryInstancingBothNull() {
         PokedexFactory pokedexFactory = new PokedexFactory();
@@ -158,7 +176,10 @@ public class WhiteBoxTest {
         IPokedex newPokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, null);
     }
 
-    // Testing IPokedexFactory and Ipokedex unique functions
+    /**
+     * Testing IPokedexFactory and Ipokedex unique functions
+     * @throws PokedexException
+     */
     @Test
     public void testIPokedex() throws PokedexException {
         PokedexFactory pokedexFactory = new PokedexFactory();
@@ -433,6 +454,9 @@ public class WhiteBoxTest {
         assertTrue(result.getStamina() == 49 || result.getStamina() == 50);
     }
 
+    /**
+     *
+     */
     @Test
     public void testingRocketFactoryValueZero() {
         Pokemon result = rocketdex.createPokemon(0, 281, 36, 1324, 2);
