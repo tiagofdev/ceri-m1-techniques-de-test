@@ -37,7 +37,10 @@ jobs:
           command: mvn test jacoco:report
       - run:
           name: Upload Coverage to Codecov
-          command: bash <(curl -s https://codecov.io/bash) -f || echo "Codecov upload failed"
+          command: |
+            curl -Os https://uploader.codecov.io/latest/linux/codecov
+            chmod +x codecov
+            ./codecov -f ./target/site/jacoco/jacoco.xml --disable=gcov || echo "Codecov upload failed"
       - codecov/upload:
           file: ./target/site/jacoco/jacoco.xml
           override:
