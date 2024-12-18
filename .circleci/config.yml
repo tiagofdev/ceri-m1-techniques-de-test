@@ -40,6 +40,8 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash) || echo "Codecov upload failed"
       - codecov/upload:
           file: ./target/site/jacoco/jacoco.xml
+          override:
+            flags: skip_age_check
       - run:
           name: Generate Javadoc
           command: mvn -B javadoc:javadoc
@@ -53,7 +55,6 @@ jobs:
             git add docs/
             git commit -m "Deploy Javadoc to GitHub Pages"
             git push origin gh-pages || echo "Deployment skipped"
-
 
   deploy:
     executor: java-docker
