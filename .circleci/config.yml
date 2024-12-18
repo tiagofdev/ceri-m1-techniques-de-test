@@ -3,6 +3,9 @@
 
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@4.0.1
+
 executors:
   java-docker:
     docker:
@@ -24,6 +27,12 @@ jobs:
           name: Run Unit Tests
           command: mvn test
       - run:
+          name: Run Checkstyle Verification
+          command: mvn checkstyle:check
+      - run:
+          name: Generate Checkstyle HTML Report
+          command: mvn checkstyle:checkstyle
+      - run:
           name: Verify Build
           command: mvn verify
       - store_test_results:
@@ -37,10 +46,7 @@ jobs:
           command: mvn test jacoco:report
       - run:
           name: Upload Coverage to Codecov
-          command: |
-            curl -Os https://uploader.codecov.io/latest/linux/codecov
-            chmod +x codecov
-            ./codecov -F ./target/site/jacoco/jacoco.xml --max-report-age 0 || echo "Codecov upload failed"
+          command: bash <(curl -s https://codecov.io/bash) -s target/site/jacoco -r "tiagofdev/ceri-m1-techniques-de-test"
       - run:
           name: Generate Javadoc
           command: mvn -B javadoc:javadoc
@@ -75,5 +81,3 @@ workflows:
             branches:
               only: master
 
-orbs:
-  codecov: codecov/codecov@4.0.1

@@ -25,9 +25,9 @@ création d'instances de Pokémon, et la gestion d'une collection Pokedex.
 
 L'API Pokedex définit plusieurs interfaces, dont:
 
-- **`IPokedex`** : Gère une liste de Pokémon, permettant leur récupération, tri et ajout.
-- **`IPokemonFactory`** : Responsable de la création d'instances de Pokémon.
-- **`IPokemonMetadataProvider`** : Fournit les métadonnées sur les Pokémon, comme les statistiques et les noms.
+- `IPokedex` : Gère une liste de Pokémon, permettant leur récupération, tri et ajout.
+- `IPokemonFactory` : Responsable de la création d'instances de Pokémon.
+- `IPokemonMetadataProvider` : Fournit les métadonnées sur les Pokémon, comme les statistiques et les noms.
 
 Ces interfaces permettent des implémentations extensibles qui peuvent être testées et utilisées dans divers contextes.
 
