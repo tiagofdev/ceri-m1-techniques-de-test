@@ -77,4 +77,3 @@ workflows:
 
 orbs:
   codecov: codecov/codecov@4.0.1
-    max_report_age: off
