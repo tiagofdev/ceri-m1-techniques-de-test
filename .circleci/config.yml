@@ -40,6 +40,8 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash) -f || echo "Codecov upload failed"
       - codecov/upload:
           file: ./target/site/jacoco/jacoco.xml
+          override:
+            flags: skip_age_check
       - run:
           name: Generate Javadoc
           command: mvn -B javadoc:javadoc
