@@ -40,7 +40,7 @@ jobs:
           command: |
             curl -Os https://uploader.codecov.io/latest/linux/codecov
             chmod +x codecov
-            ./codecov -F ./target/site/jacoco/jacoco.xml --disable=gcov || echo "Codecov upload failed"
+            ./codecov -F ./target/site/jacoco/jacoco.xml --max-report-age 0 || echo "Codecov upload failed"
       - run:
           name: Generate Javadoc
           command: mvn -B javadoc:javadoc
@@ -77,3 +77,4 @@ workflows:
 
 orbs:
   codecov: codecov/codecov@4.0.1
+    max_report_age: off
