@@ -34,7 +34,7 @@ jobs:
           command: mvn checkstyle:checkstyle
       - run:
           name: Verify Build
-          command: mvn verify
+          command: mvn clean verify
       - store_test_results:
           path: target/surefire-reports
       - save_cache:

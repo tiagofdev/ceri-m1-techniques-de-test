@@ -31,19 +31,7 @@ L'API Pokedex définit plusieurs interfaces, dont:
 
 Ces interfaces permettent des implémentations extensibles qui peuvent être testées et utilisées dans divers contextes.
 
-## Approche de Test
 
-Ce projet utilise **JUnit 4.13.2** et **Mockito** pour les tests. Les tests visent à vérifier la fonctionnalité et le
-comportement de chaque interface et classe pour garantir leur exactitude et fiabilité. Les principales techniques de
-test incluent:
-
-- **Tests Unitaires**: Chaque méthode d'interface et fonction de classe est testée isolément pour confirmer qu'elle se
-  comporte comme prévu.
-- **Mocking**: Mockito est utilisé pour créer des mocks de dépendances, permettant des tests isolés pour chaque
-  composant. Par exemple, des mocks sont créés pour les dépendances telles que `IPokemonMetadataProvider`
-  et `IPokemonFactory` afin de tester l'interface `IPokedex` indépendamment.
-- **Vérification du Comportement**: La méthode `verify` de Mockito assure que certaines méthodes sont appelées comme
-  prévu avec des arguments spécifiques.
 
 ## Outils et Technologies
 
@@ -74,26 +62,69 @@ test incluent:
   utilise l'image `cimg/openjdk:21.0` pour l'environnement de build Java.
 
 ---
+
+## TP1 et TP2
+Configuration du workflow(config.yml) avec CircleCI et CodeCov
+Configuration des badges
+
+## TP3 Tests Unitaires
+
+Ce projet utilise **JUnit 4.13.2** et **Mockito** pour les tests unitaires. Les tests visent à vérifier la fonctionnalité et le
+comportement de chaque interface et classe pour garantir leur exactitude et fiabilité. Les principales techniques de
+test incluent:
+
+- **Tests Unitaires**: Chaque méthode d'interface et fonction de classe est testée isolément pour confirmer qu'elle se
+  comporte comme prévu.
+- **Mocking**: Mockito est utilisé pour créer des mocks de dépendances, permettant des tests isolés pour chaque
+  composant. Par exemple, des mocks sont créés pour les dépendances telles que `IPokemonMetadataProvider`
+  et `IPokemonFactory` afin de tester l'interface `IPokedex` indépendamment.
+- **Vérification du Comportement**: La méthode `verify` de Mockito assure que certaines méthodes sont appelées comme
+  prévu avec des arguments spécifiques.
+
+
 ## TP4 WhiteBox Tests - Tests d'Implementation
 
-Tests de index valides
-Tests de index invalides
-Tests de boundary
-Tests qui jettent exceptions
+* Analyser la structure du code
 
-On a essayé de couvrir plutôt tous les méthodes des interfaces
+  Déterminer les critères de couverture en analysant les chemins conditionnels (if, else, switch), les boucles 
+    (for, while) et les exceptions qui pourraient nécessiter des tests spécifiques.
+* Créer des cas de test
+
+  Identifiez les entrées ou scénarios nécessaires pour exécuter chaque partie du code.
+  Concevez des tests pour :
+  On a essayé de couvrir plutôt toutes les méthodes des interfaces
+  Les cas normaux (scénarios où le code fonctionne comme prévu, des cas d'inputs valides).
+  Les cas limites (e.g., valeurs aux limites ou extrêmes).
+  Les cas exceptionnels (erreurs, entrées invalides, et ils jettent exceptions).
+* Utiliser des outils d'analyse et de tests
+
+  Outils de couverture de code : Des outils comme JaCoCo (Java) et SonarQube permettent de mesurer 
+  la couverture des tests.
+
+
+## TP5 - Checkstyle et Javadoc
+
+Configuration de la creation des rapports javadoc et checkstyle
+Integration automatique des rapports de le workflow
+Creation des badges et liens des rapports
 
 
 ## TP6 - Rapport des tests sur Team Rocket implementation de RocketPokemonFactory
 
 ### Testing RocketFactory
 
-* Tesing valid index 1
+* Structure de l'implementation
 
-    L'implémentation de Team Rocket a une TO DO list incomplète. Ils ne répertorient pas les 151 Pokémon, mais
+L'implémentation de Team Rocket a une TO DO list incomplète. Ils ne répertorient pas les 151 Pokémon, mais
 un seul est présent. Ils ont 2 valeurs par défaut. Pour cette raison, nous testons uniquement les index 0, 1 et -1.
+Leur implementation manque de documentation ou de commentaires.
+Manque de cas des exceptions
 
-* Testing les valeurs génerés aléatoirement
+* Testing valid index 1
+
+    Le test échoue pour les valeurs de base (attaque, stamina, defense)
+
+* Testing les valeurs générées aléatoirement
 
     Les valeurs de base pour l'attaque, la défense et l'endurance sont censées être
  comprises entre 0 et 15. L'implémentation de Team Rocket génère des valeurs qui sont censées être aléatoires et
@@ -110,8 +141,9 @@ un seul est présent. Ils ont 2 valeurs par défaut. Pour cette raison, nous tes
 cependant, permet la création de Pokémon avec des index non valides et "génère" des valeurs de base.
 ils définissent un nom par défaut
 
-
-
+* Checkstyle
+    
+    Checkstyle rapporte 18 erreurs de style sur leur implementation
 
 ************************************************************************************************************************************************************************
 
@@ -139,7 +171,7 @@ main.
 
 L'ensemble des sujets de TPs peut être trouvé dans le dossier `TPs`.
 
-Le dossier `src` contient la définition de l'ensemble des interfaces qui seront l'objet de vos travaux.
+Le dossier `src` contient la définition de l'ensemble des interfaces qui seront l'objet des travaux.
 
 ## Rendus
 
