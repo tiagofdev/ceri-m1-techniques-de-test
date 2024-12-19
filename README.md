@@ -74,6 +74,15 @@ test incluent:
   utilise l'image `cimg/openjdk:21.0` pour l'environnement de build Java.
 
 ---
+## TP4 WhiteBox Tests - Tests d'Implementation
+
+Tests de index valides
+Tests de index invalides
+Tests de boundary
+Tests qui jettent exceptions
+
+On a essayé de couvrir plutôt tous les méthodes des interfaces
+
 
 ## TP6 - Rapport des tests sur Team Rocket implementation de RocketPokemonFactory
 

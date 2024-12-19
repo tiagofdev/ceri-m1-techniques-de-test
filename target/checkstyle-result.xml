@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="9.3">
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\IPokedex.java">
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\IPokedexFactory.java">
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\IPokemonFactory.java">
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\IPokemonMetadataProvider.java">
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\IPokemonTrainerFactory.java">
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\package-info.java">
+</file>
 <file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\Pokedex.java">
 <error line="31" column="55" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="32" column="55" severity="error" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokedexException.java">
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokedexFactory.java">
+</file>
 <file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\Pokemon.java">
 <error line="49" column="12" severity="error" message="More than 7 parameters (found 10)." source="com.puppycrawl.tools.checkstyle.checks.sizes.ParameterNumberCheck"/>
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokemonComparators.java">
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokemonFactory.java">
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokemonMetadata.java">
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokemonMetadataProvider.java">
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokemonTrainer.java">
 </file>
 <file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\RocketPokemonFactory.java">
 <error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
@@ -23,5 +49,9 @@
 <error line="48" column="22" severity="error" message="&apos;1000&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="49" column="23" severity="error" message="&apos;1000&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="50" column="23" severity="error" message="&apos;1000&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\Team.java">
+</file>
+<file name="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\TrainerFactory.java">
 </file>
 </checkstyle>

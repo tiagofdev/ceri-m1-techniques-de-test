@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="fr.univavignon.pokedex.api.WhiteBoxTest" time="9.197" tests="32" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="fr.univavignon.pokedex.api.WhiteBoxTest" time="8.11" tests="32" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Languages\Java\SDK 21\bin"/>
-    <property name="sun.java.command" value="C:\Users\Tiago\AppData\Local\Temp\surefire1445163516825916608\surefirebooter72195409745294672.jar C:\Users\Tiago\AppData\Local\Temp\surefire1445163516825916608 2024-12-14T17-44-37_556-jvmRun1 surefire4406077078587751162tmp surefire_03646086626358251154tmp"/>
+    <property name="sun.java.command" value="C:\Users\Tiago\AppData\Local\Temp\surefire10075158504837989479\surefirebooter9090122938433769565.jar C:\Users\Tiago\AppData\Local\Temp\surefire10075158504837989479 2024-12-19T09-11-28_376-jvmRun1 surefire15873872527940974206tmp surefire_07471839432752163111tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\target\test-classes;C:\Users\Tiago\dev\Java\ceri-m1-techniques-de-test\target\classes;C:\Users\Tiago\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Tiago\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Tiago\.m2\repository\org\mockito\mockito-core\5.14.0\mockito-core-5.14.0.jar;C:\Users\Tiago\.m2\repository\net\bytebuddy\byte-buddy\1.15.2\byte-buddy-1.15.2.jar;C:\Users\Tiago\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.2\byte-buddy-agent-1.15.2.jar;C:\Users\Tiago\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Tiago\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Tiago\AppData\Local\Temp\surefire1445163516825916608\surefirebooter72195409745294672.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Tiago\AppData\Local\Temp\surefire10075158504837989479\surefirebooter9090122938433769565.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.1+12-LTS-29"/>
@@ -52,7 +52,7 @@
     <property name="user.language.format" value="pt"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Languages\Java\SDK 21\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Languages\Python12\Scripts\;C:\Languages\Python12\;C:\Languages\Python\;C:\Languages\Python\Scripts;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;C:\Languages\Xampp\mysql\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Languages\Cpp\mysys2-compilers\mingw64\bin;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Kubernetes\Minikube;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.9.9\bin;C:\Languages\Nodejs\Node22\;C:\Users\Tiago\AppData\Roaming\npm;C:\Languages\Python38\Scripts\;C:\Languages\Python38\;C:\Languages\Python12\Scripts\;C:\Languages\Python12\;C:\Users\Tiago\AppData\Local\Programs\Python\Launcher\;C:\Languages\Python10\Scripts\;C:\Languages\Python10\;C:\Users\Tiago\.cargo\bin;C:\Users\Tiago\AppData\Local\Microsoft\WindowsApps;C:\Users\Tiago\.dotnet\tools;C:\Languages\Python34\;C:\Languages\Python34\Scprits\;C:\Languages\Xampp\mysql\bin;C:\Users\Tiago\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Tiago\AppData\Roaming\npm;C:\Languages\Nodejs\Node22;C:\Languages\Nodejs\Node22\node_modules\npm;;."/>
+    <property name="java.library.path" value="C:\Languages\Java\SDK 21\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Languages\Python12\Scripts\;C:\Languages\Python12\;C:\Languages\Python\;C:\Languages\Python\Scripts;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;C:\Xampp\mysql\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Languages\Cpp\mysys2-compilers\mingw64\bin;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Kubernetes\Minikube;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.9.9\bin;C:\Languages\Nodejs\Node22\;C:\Users\Tiago\AppData\Roaming\npm;C:\Languages\Python38\Scripts\;C:\Languages\Python38\;C:\Languages\Python12\Scripts\;C:\Languages\Python12\;C:\Users\Tiago\AppData\Local\Programs\Python\Launcher\;C:\Languages\Python10\Scripts\;C:\Languages\Python10\;C:\Users\Tiago\.cargo\bin;C:\Users\Tiago\AppData\Local\Microsoft\WindowsApps;C:\Users\Tiago\.dotnet\tools;C:\Languages\Python34\;C:\Languages\Python34\Scprits\;C:Xampp\mysql\bin;C:\Users\Tiago\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Tiago\AppData\Roaming\npm;C:\Languages\Nodejs\Node22;C:\Languages\Nodejs\Node22\node_modules\npm;;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="Cp1252"/>
     <property name="java.vendor" value="Oracle Corporation"/>
@@ -60,36 +60,36 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testCreateTrainer_NullPokedexFactory" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.394"/>
-  <testcase name="testGetPokemonsComparateEmptyList" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.266"/>
-  <testcase name="testPokedexBaseValues" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.443"/>
-  <testcase name="testingIPokemonFactoryInvalidIndex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.613"/>
-  <testcase name="testPokedexFactoryInstancingBothNull" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.588"/>
-  <testcase name="testCpComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.376"/>
-  <testcase name="testCreateTrainer_NullName" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.247"/>
-  <testcase name="testCreateTrainer_NullTeam" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.237"/>
-  <testcase name="testingPokemonFactory" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.231"/>
-  <testcase name="testEqualPokemonNameComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.244"/>
-  <testcase name="testAddPokemon_NullPokemon" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.232"/>
-  <testcase name="testingRocketFactoryBaseValues" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.339"/>
-  <testcase name="testPokedexFactoryInstancing" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.228"/>
-  <testcase name="testAddPokemonsNullComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.231"/>
-  <testcase name="testEqualPokemonIndexComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.232"/>
-  <testcase name="testPokedexFactoryInstancingFirstNull" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.227"/>
-  <testcase name="testPokedexFactoryInstancingSecondNull" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.228"/>
-  <testcase name="testingRocketFactoryValidIndex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.344"/>
-  <testcase name="testIPokedex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.227"/>
-  <testcase name="testIndexComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.233"/>
-  <testcase name="testingRocketFactoryInvalidIndex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.341"/>
-  <testcase name="testingRocketFactoryNegativeOne" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.229"/>
-  <testcase name="testingIPokemonFactoryBoundaries" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.226"/>
+  <testcase name="testCreateTrainer_NullPokedexFactory" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.272"/>
+  <testcase name="testGetPokemonsComparateEmptyList" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.242"/>
+  <testcase name="testPokedexBaseValues" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.247"/>
+  <testcase name="testingIPokemonFactoryInvalidIndex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.266"/>
+  <testcase name="testPokedexFactoryInstancingBothNull" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.258"/>
+  <testcase name="testCpComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.251"/>
+  <testcase name="testCreateTrainer_NullName" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.229"/>
+  <testcase name="testCreateTrainer_NullTeam" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.232"/>
+  <testcase name="testingPokemonFactory" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.237"/>
+  <testcase name="testEqualPokemonNameComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.234"/>
+  <testcase name="testAddPokemon_NullPokemon" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.227"/>
+  <testcase name="testingRocketFactoryBaseValues" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.342"/>
+  <testcase name="testPokedexFactoryInstancing" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.229"/>
+  <testcase name="testAddPokemonsNullComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.243"/>
+  <testcase name="testEqualPokemonIndexComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.227"/>
+  <testcase name="testPokedexFactoryInstancingFirstNull" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.229"/>
+  <testcase name="testPokedexFactoryInstancingSecondNull" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.229"/>
+  <testcase name="testingRocketFactoryValidIndex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.353"/>
+  <testcase name="testIPokedex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.228"/>
+  <testcase name="testIndexComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.228"/>
+  <testcase name="testingRocketFactoryInvalidIndex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.343"/>
+  <testcase name="testingRocketFactoryNegativeOne" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.235"/>
+  <testcase name="testingIPokemonFactoryBoundaries" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.232"/>
   <testcase name="testPokedexGetPokemonOutOfBounds" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.233"/>
-  <testcase name="testCreateTrainer_ValidInputs" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.227"/>
-  <testcase name="testCreateTrainer_EmptyName" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.23"/>
-  <testcase name="testingRocketFactoryValueZero" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.338"/>
-  <testcase name="testingIPokemonMetadataProviderInvalidIndex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.228"/>
-  <testcase name="testNameComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.234"/>
-  <testcase name="testEqualPokemonCpComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.231"/>
-  <testcase name="testingIPokemonMetadataProvider" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.225"/>
-  <testcase name="testingIPokemonFactoryValidIndex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.225"/>
+  <testcase name="testCreateTrainer_ValidInputs" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.229"/>
+  <testcase name="testCreateTrainer_EmptyName" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.232"/>
+  <testcase name="testingRocketFactoryValueZero" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.358"/>
+  <testcase name="testingIPokemonMetadataProviderInvalidIndex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.23"/>
+  <testcase name="testNameComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.232"/>
+  <testcase name="testEqualPokemonCpComparator" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.234"/>
+  <testcase name="testingIPokemonMetadataProvider" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.228"/>
+  <testcase name="testingIPokemonFactoryValidIndex" classname="fr.univavignon.pokedex.api.WhiteBoxTest" time="0.248"/>
 </testsuite>
