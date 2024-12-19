@@ -28,6 +28,8 @@ L'API Pokedex définit plusieurs interfaces, dont:
 - `IPokedex` : Gère une liste de Pokémon, permettant leur récupération, tri et ajout.
 - `IPokemonFactory` : Responsable de la création d'instances de Pokémon.
 - `IPokemonMetadataProvider` : Fournit les métadonnées sur les Pokémon, comme les statistiques et les noms.
+- `IPokemonPokedexFactory` : Fait la création des IPokedex.
+- `IPokemonTrainerFactory` : Responsable de la création d'instances de Trainers(Utilisateurs).
 
 Ces interfaces permettent des implémentations extensibles qui peuvent être testées et utilisées dans divers contextes.
 
@@ -84,11 +86,27 @@ test incluent:
 
 ## TP4 WhiteBox Tests - Tests d'Implementation
 
-* Analyser la structure du code
+* Implementation des Interfaces
+  * Pokedex implements IPokedex
+  * PokedexFactory implements IPokedexFactory
+  * PokemonFactory implements IPokemonFactory
+  * PokemonMetadataProvider implements IPokemonMetadataProvider
+  * PokemonTrainer implements IPokemonTrainer
+
+  Selon les directives, l'interface IPokedex vise à stocker toutes les informations sur les Pokémon capturés, ainsi que 
+leurs métadonnées par défaut. La décision a donc été prise de générer une seule fois des valeurs allant de 1 à 15 pour 
+l'attaque, la défense et l'endurance. J'ai écrit un code pour générer ces valeurs et l'ai écrit dans un fichier nommé 
+baseValues.txt. Le code pour la génération du fichier a été jété car il s'agissait d'un événement unique. 
+
+  Lors de la création d'une nouvelle instance de Pokedex, la classe récupère ces informations générées à partir du 
+fichier afin de créer de nouveaux Pokémon. La conception vise à conserver un standard pour les Pokémon de la même 
+race avec les mêmes métadonnées communes.
+
+* Analyser la structure du code :
 
   Déterminer les critères de couverture en analysant les chemins conditionnels (if, else, switch), les boucles 
     (for, while) et les exceptions qui pourraient nécessiter des tests spécifiques.
-* Créer des cas de test
+* Créer des cas de test :
 
   Identifiez les entrées ou scénarios nécessaires pour exécuter chaque partie du code.
   Concevez des tests pour :
@@ -96,7 +114,7 @@ test incluent:
   Les cas normaux (scénarios où le code fonctionne comme prévu, des cas d'inputs valides).
   Les cas limites (e.g., valeurs aux limites ou extrêmes).
   Les cas exceptionnels (erreurs, entrées invalides, et ils jettent exceptions).
-* Utiliser des outils d'analyse et de tests
+* Utiliser des outils d'analyse et de tests :
 
   Outils de couverture de code : Des outils comme JaCoCo (Java) et SonarQube permettent de mesurer 
   la couverture des tests.
@@ -105,45 +123,54 @@ test incluent:
 ## TP5 - Checkstyle et Javadoc
 
 Configuration de la creation des rapports javadoc et checkstyle
-Integration automatique des rapports de le workflow
+  * On utilise un plugin sur pom.xml pour la mise à jour du badge de checkstyle
+
+Integration automatique des rapports de le workflow avec les directives pour éxecuter :
+  * mvn checkstyle:check
+  * mvn checkstyle:checkstyle
+  * mvn clean verify
+
 Creation des badges et liens des rapports
+
 
 
 ## TP6 - Rapport des tests sur Team Rocket implementation de RocketPokemonFactory
 
 ### Testing RocketFactory
 
-* Structure de l'implementation
+* **Structure de leur implementation**
 
-L'implémentation de Team Rocket a une TO DO list incomplète. Ils ne répertorient pas les 151 Pokémon, mais
-un seul est présent. Ils ont 2 valeurs par défaut. Pour cette raison, nous testons uniquement les index 0, 1 et -1.
-Leur implementation manque de documentation ou de commentaires.
-Manque de cas des exceptions
+    * L'implémentation de Team Rocket a une TO DO list incomplète. 
+    * Ils ne répertorient pas les 151 Pokémon, mais un seul est présent. 
+    * Ils ont 2 valeurs par défaut. Pour cette raison, nous testons uniquement les index 0, 1 et -1.
+    * Leur implementation manque de documentation ou de commentaires.
+    * Elle manque de cas des exceptions
 
-* Testing valid index 1
+* **Testing valid index 1**
 
     Le test échoue pour les valeurs de base (attaque, stamina, defense)
 
-* Testing les valeurs générées aléatoirement
+* **Testing les valeurs générées aléatoirement**
 
     Les valeurs de base pour l'attaque, la défense et l'endurance sont censées être
- comprises entre 0 et 15. L'implémentation de Team Rocket génère des valeurs qui sont censées être aléatoires et
+ comprises entre 0 et 15. L'implémentation de Team Rocket génère des valeurs aléatoires et
  comprises entre 0 et 100. Cependant, leur algorithme échoue et renvoie toujours le même résultat, soit 49 ou 50,
  à chaque fois.
 
-* Testing Negative Zero index :
+* **Testing Negative Zero index**
     
     Cet index spécial obtient différentes statistiques de valeur de base pour l'attaque, la défense et l'endurance
 
-* Testing Invalid Index
+* **Testing Invalid Index**
 
     Selon mes tests, cela échouerait car je m'attendais à une valeur nulle pour un index non valide. La Team Rocket, 
 cependant, permet la création de Pokémon avec des index non valides et "génère" des valeurs de base.
 ils définissent un nom par défaut
 
-* Checkstyle
+* **Checkstyle**
     
     Checkstyle rapporte 18 erreurs de style sur leur implementation
+
 
 ************************************************************************************************************************************************************************
 
